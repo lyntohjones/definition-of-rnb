@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Definition of R&B - Celebrating GRAMN & Modern R&B Artists</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #5e17eb;
+            --dark-purple: #3a0ca3;
+            --light-purple: #7209b7;
+            --gold: #ffd700;
+            --soft-gold: #f0e6ba;
+            --rich-black: #0f0f0f;
+            --slate-gray: #1a1a2e;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0f0f0f;
+            color: #ffffff;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--rich-black);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .logo span.gold {
+            color: var(--gold);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--gold);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-purple) 0%, var(--rich-black) 100%);
+            padding: 140px 0 80px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            color: #e0e0e0;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .gold-text {
+            color: var(--gold);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin: 10px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-purple);
+            color: white;
+            border: 2px solid var(--primary-purple);
+        }
+        
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--gold);
+            border-color: var(--gold);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--gold);
+            color: var(--rich-black);
+        }
+        
+        /* Featured Artist Section */
+        .featured-artist {
+            padding: 80px 0;
+            background-color: var(--slate-gray);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background-color: var(--gold);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .artist-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .artist-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .artist-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .artist-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        
+        .artist-text h3 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .artist-text .subtitle {
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .tag {
+            display: inline-block;
+            background-color: var(--dark-purple);
+            padding: 6px 15px;
+            border-radius: 20px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .social-links {
+            margin-top: 25px;
+        }
+        
+        .social-links a {
+            color: var(--gold);
+            text-decoration: none;
+            margin-right: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: white;
+        }
+        
+        .social-links i {
+            margin-right: 5px;
+        }
+        
+        /* Rising Artists Section */
+        .rising-artists {
+            padding: 80px 0;
+            background-color: var(--rich-black);
+        }
+        
+        .artists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .artist-card {
+            background-color: var(--slate-gray);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .artist-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(94, 23, 235, 0.2);
+        }
+        
+        .artist-card-image {
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .artist-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .artist-card:hover .artist-card-image img {
+            transform: scale(1.1);
+        }
+        
+        .artist-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+        }
+        
+        .artist-card-content {
+            padding: 20px;
+        }
+        
+        .artist-card-content h3 {
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+        
+        .artist-card-content .genre {
+            color: var(--gold);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .artist-card-content p {
+            font-size: 14px;
+            color: #cccccc;
+            margin-bottom: 15px;
+        }
+        
+        .view-profile {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+        
+        .view-profile:hover {
+            color: white;
+        }
+        
+        .view-profile i {
+            margin-left: 5px;
+            font-size: 12px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--rich-black);
+            padding: 60px 0 30px;
+            border-top: 1px solid #222;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .footer-column p {
+            color: #999;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 14px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #222;
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .footer-social a:hover {
+            background-color: var(--primary-purple);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #222;
+            color: #777;
+            font-size: 14px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .artist-info {
+                flex-direction: column;
+            }
+            
+            .artist-text, .artist-image {
+                width: 100%;
+            }
+            
+            .mobile-menu {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: var(--rich-black);
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            }
+            
+            .mobile-menu.active {
+                display: block;
+            }
+            
+            .mobile-menu a {
+                display: block;
+                color: white;
+                text-decoration: none;
+                padding: 10px 0;
+                border-bottom: 1px solid #222;
+            }
+            
+            .mobile-menu a:last-child {
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span>The Definition of</span> <span class="gold">R&B</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#featured-artist">Featured Artist</a>
+                    <a href="#rising-artists">Artists</a>
+                    <a href="#about">About</a>
+                </div>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="mobile-menu">
+                <a href="#home">Home</a>
+                <a href="#featured-artist">Featured Artist</a>
+                <a href="#rising-artists">Artists</a>
+                <a href="#about">About</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1><span class="gold-text">Discover</span> the Future of <span class="gold-text">R&B</span></h1>
+            <p>Celebrating innovative artists pushing the boundaries of rhythm and blues, crafting the soundtracks of tomorrow.</p>
+            <div class="hero-buttons">
+                <a href="#featured-artist" class="btn btn-primary">Explore Artists</a>
+                <a href="https://www.instagram.com/thedefinitionofrnb" target="_blank" class="btn btn-outline">Follow Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Artist Section -->
+    <section id="featured-artist" class="featured-artist">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Artist</h2>
+                <p class="gold-text">Experience the sonic innovation of GRAMN.</p>
+            </div>
+            
+            <div class="artist-info">
+                <div class="artist-text">
+                    <h3>GRAMN.</h3>
+                    <p class="subtitle">London-based R&B Collective</p>
+                    <p>GRAMN. began with the bold sound of a young woman from Hackney, London named Aux, who enjoyed creating unapologetically honest music. The collective was formed when Aux met producers and multi-instrumentalists James Lowe and Johnny Tomlinson, creating a trio that blends groove-laden R&B, hip-hop lyricism, and experimental production.</p>
+                    <p>Their sound is a unique combination of tightly wound R&B with Aux's gifted vocals and flamboyant persona, quickly carving a unique path with the sole aim of making authentic art. Influenced by artists like Kendrick Lamar, Missy Elliott, and Lauryn Hill, GRAMN. explores both personal and global issues through their music.</p>
+                    
+                    <div class="tags">
+                        <span class="tag">Alternative R&B</span>
+                        <span class="tag">Hip-Hop Soul</span>
+                        <span class="tag">Experimental</span>
+                        <span class="tag">UK Music</span>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://open.spotify.com/album/6MdD3LzHf86Levu3OyyjzK" target="_blank"><i class="fab fa-spotify"></i> Spotify</a>
+                        <a href="https://www.instagram.com/thisisgramn" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                        <a href="https://soundcloud.com/thisisgramn" target="_blank"><i class="fab fa-soundcloud"></i> SoundCloud</a>
+                    </div>
+                </div>
+                <div class="artist-image">
+                    <img src="https://prsfoundation.com/wp-content/uploads/2021/05/000078420009-scaled.jpg" alt="GRAMN artist photo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rising Artists Section -->
+    <section id="rising-artists" class="rising-artists">
+        <div class="container">
+            <div class="section-title">
+                <h2>Rising R&B Artists</h2>
+                <p>Discover the voices shaping the future of modern R&B, blending traditional soul with contemporary sounds.</p>
+            </div>
+            
+            <div class="artists-grid">
+                <!-- Artist 1 -->
+                <div class="artist-card">
+                    <div class="artist-card-image">
+                        <img src="https://media.wonderlandmagazine.com/uploads/2023/10/zek-photos-13-2-scaled.jpg" alt="Jordan Ward">
+                        <div class="artist-overlay"></div>
+                    </div>
+                    <div class="artist-card-content">
+                        <h3>Jordan Ward</h3>
+                        <p class="genre">Neo-Soul / R&B</p>
+                        <p>Soulful vocals with jazz-influenced production and introspective lyricism.</p>
+                        <a href="https://open.spotify.com/artist/2KVewj8KPkUOF3RbXfqUVP" class="view-profile" target="_blank">
+                            View Profile <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Artist 2 -->
+                <div class="artist-card">
+                    <div class="artist-card-image">
+                        <img src="https://cdn.shopify.com/s/files/1/0069/3465/9162/files/DESTIN-CONRAD-hero-banner-241123-1631.webp" alt="Destin Conrad">
+                        <div class="artist-overlay"></div>
+                    </div>
+                    <div class="artist-card-content">
+                        <h3>Destin Conrad</h3>
+                        <p class="genre">Contemporary R&B</p>
+                        <p>Smooth vocals with contemporary production exploring love and relationships.</p>
+                        <a href="https://open.spotify.com/artist/6j8hEWhqz1NfwUxl2PoZhO" class="view-profile" target="_blank">
+                            View Profile <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Artist 3 -->
+                <div class="artist-card">
+                    <div class="artist-card-image">
+                        <img src="https://core.colorsxstudios.com/wp-content/uploads/2023/09/COLORSxSTUDIOS_Announcement_ShaeCC81Universe-1229x1536.jpg" alt="Shaé Universe">
+                        <div class="artist-overlay"></div>
+                    </div>
+                    <div class="artist-card-content">
+                        <h3>Shaé Universe</h3>
+                        <p class="genre">UK R&B / Soul</p>
+                        <p>Powerful vocals with jazz and soul influences from the UK scene.</p>
+                        <a href="https://open.spotify.com/artist/6EwQ83DYX37DNO4RZJrXNO" class="view-profile" target="_blank">
+                            View Profile <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Artist 4 -->
+                <div class="artist-card">
+                    <div class="artist-card-image">
+                        <img src="https://www.nme.com/wp-content/uploads/2023/10/Naomi-sharon-artist-1.jpg" alt="Naomi Sharon">
+                        <div class="artist-overlay"></div>
+                    </div>
+                    <div class="artist-card-content">
+                        <h3>Naomi Sharon</h3>
+                        <p class="genre">Alternative R&B</p>
+                        <p>Rich, soulful vocals with atmospheric production and poetic lyrics.</p>
+                        <a href="https://open.spotify.com/artist/60XvF6OpJmSBzNh4cVhdyZ" class="view-profile" target="_blank">
+                            View Profile <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="featured-artist">
+        <div class="container">
+            <div class="section-title">
+                <h2>About The Definition of R&B</h2>
+            </div>
+            
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p>Welcome to The Definition of R&B, your premier source for discovering the future of rhythm and blues. We're passionate about showcasing talented upcoming artists and bringing you the latest news, interviews, and sounds from the R&B world.</p>
+                
+                <p>Inspired by the vibes on our Instagram page, this platform aims to dive deeper into the music and the stories behind it. We celebrate the evolution of R&B from its soulful roots to its innovative present, highlighting artists who push boundaries while honoring tradition.</p>
+                
+                <p>Join our community and explore the evolving landscape of R&B with us, from established icons to the rising stars crafting tomorrow's classics.</p>
+                
+                <div class="social-links" style="justify-content: center; margin-top: 30px;">
+                    <a href="https://www.instagram.com/thedefinitionofrnb" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#"><i class="far fa-envelope"></i> Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>The Definition of <span class="gold-text">R&B</span></h3>
+                    <p>Celebrating the evolution of R&B music and the artists who push boundaries while honoring tradition.</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/thedefinitionofrnb" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-spotify"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Navigation</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#featured-artist">Featured Artist</a></li>
+                        <li><a href="#rising-artists">Artists</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Playlists</a></li>
+                        <li><a href="#">Interviews</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Submit Music</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2025</span> The Definition of R&B. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
