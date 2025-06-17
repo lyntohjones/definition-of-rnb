@@ -1,0 +1,243 @@
+/* style.css */
+/* Based on design_specification.md */
+
+/* 1. Overall Aesthetic & Body */
+body {
+    font-family: 'Inter', sans-serif; /* Primary Sans-Serif Family */
+    margin: 0;
+    background-color: #F8F9FA; /* Light neutral background */
+    color: #333333; /* Primary text color */
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 2. Layout - Section Header */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.5rem; /* Prominent H1 */
+    font-weight: 700; /* Bold */
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.1rem;
+    color: #555555; /* Slightly muted intro text */
+    margin-bottom: 0;
+}
+
+/* Regional Subheadings (Method A) */
+.artists-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 40px;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #E0E0E0; /* Accent border */
+}
+
+/* 2. Layout - Responsive Card-Based Grid */
+.artist-grid {
+    display: grid;
+    gap: 24px; /* Consistent gutter */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Default for mobile-first, up to 1fr */
+}
+
+/* Tablet: 2 cards per row */
+@media (min-width: 600px) { /* Adjusted breakpoint for 2 cards */
+    .artist-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop: 3-4 cards per row */
+/* Using 3 for a balanced look, can be adjusted with a class or more specific media query for 4 */
+@media (min-width: 992px) {
+    .artist-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    /* Optional: 4 cards for very wide screens if desired, or keep 3 for more whitespace */
+    /* .artist-grid { grid-template-columns: repeat(4, 1fr); } */
+}
+
+
+/* 3. Artist Card Content & Structure */
+.artist-card {
+    background-color: #FFFFFF; /* Card background */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.artist-card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Enhanced shadow on hover */
+    transform: translateY(-5px); /* Slight lift on hover */
+}
+
+/* A. Artist Image */
+.artist-card .artist-image-wrapper { /* Wrapper for aspect ratio */
+    width: 100%;
+    padding-top: 75%; /* 4:3 aspect ratio (3/4 * 100) */
+    /* For 16:9 use: padding-top: 56.25%; */
+    /* For 1:1 use: padding-top: 100%; */
+    position: relative;
+    overflow: hidden;
+}
+
+.artist-card .artist-image-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers the area, might crop */
+    transition: transform 0.3s ease; /* For optional hover zoom */
+}
+
+.artist-card:hover .artist-image-wrapper img {
+    /* transform: scale(1.05); */ /* Optional image zoom on card hover */
+}
+
+.artist-card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allows content to fill card if card heights vary due to content */
+}
+
+/* B. Artist Name */
+.artist-card h3 {
+    font-size: 1.6rem; /* Responsive: clamp(1.4rem, 2.5vw, 1.8rem) could be used */
+    font-weight: 600; /* Semibold */
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #222222;
+}
+
+/* C. Origin */
+.artist-card .origin {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #666666; /* Muted color */
+    margin-bottom: 12px;
+}
+
+/* D. Brief Bio */
+.artist-card .bio {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    /* Initial max-height for approx 2-3 lines. Adjust based on font and line-height. */
+    max-height: calc(0.95rem * 1.5 * 3);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* transition: max-height 0.5s ease-in-out; */ /* JS will handle class toggle for expansion */
+}
+
+.artist-card .bio.expanded {
+    max-height: 1000px; /* Large enough to show full content */
+    /* transition: max-height 0.5s ease-in-out; */ /* Re-apply if needed for smoothness with JS */
+}
+
+.artist-card .read-more {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #007BFF; /* Accent color for links */
+    cursor: pointer;
+    display: inline-block; /* So it doesn't take full width */
+    margin-top: 5px;
+    margin-bottom: 10px; /* Space before key tracks */
+}
+
+.artist-card .read-more:hover {
+    text-decoration: underline;
+}
+
+/* E. Key Tracks/Projects */
+.artist-card .key-tracks {
+    margin-top: auto; /* Pushes to bottom if card content is sparse */
+    padding-top: 10px; /* Space above if bio is short */
+}
+
+.artist-card .key-tracks strong {
+    font-size: 0.9rem;
+    font-weight: 500; /* Semibold */
+    display: block;
+    margin-bottom: 5px;
+}
+
+.artist-card .key-tracks ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.artist-card .key-tracks li {
+    font-size: 0.9rem;
+    color: #444444;
+    margin-bottom: 4px;
+}
+
+/* F. Music Platform Links */
+.artist-card .platform-links {
+    margin-top: 15px;
+    display: flex;
+    gap: 12px; /* Space between icons */
+    align-items: center;
+}
+
+.artist-card .platform-links a {
+    display: inline-block; /* For proper sizing of links */
+}
+
+.artist-card .platform-links img { /* Assuming SVGs will be used eventually, style the <a> or <img> */
+    width: 24px;
+    height: 24px;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.artist-card .platform-links a:hover img {
+    opacity: 1;
+}
+
+/* 5. Typography - already defined in body and specific elements */
+
+/* 6. Color Palette - already defined */
+/* Page Background: #F8F9FA */
+/* Card Background: #FFFFFF */
+/* Primary Text: #333333 */
+/* Muted Text (Origin, Intro): #555555, #666666 */
+/* Accent Color (Links): #007BFF */
+
+/* 7. Interactions & Animations - already defined for card hover, bio expansion needs JS */
+
+/* 8. Accessibility Considerations */
+/* Ensure focus states are clear for keyboard navigation */
+a:focus, button:focus, .read-more:focus {
+    outline: 2px solid #007BFF; /* Example focus style */
+    outline-offset: 2px;
+}
+
+/* Fallback for placeholder images if using text */
+.artist-image-wrapper img[src*="via.placeholder.com"] {
+    filter: grayscale(0.5) brightness(0.9); /* Make placeholders less visually dominant */
+}
+
+/* If using icon fonts for platforms, ensure they are hidden from screen readers (aria-hidden) and links have aria-labels */
+
+/* End of style.css */
