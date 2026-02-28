@@ -13,9 +13,17 @@ export default function Footer() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
 
-          {/* Brand block */}
+          {/* ── Brand block ── */}
           <div className="col-span-2 md:col-span-1">
-            <div className="border-2 border-[#e3d1b8] p-[3px] inline-block mb-4">
+            {/* Logo image — drop logo.png into public/ */}
+            <img
+              src="/logo.png"
+              alt="The Definition of R&B"
+              className="h-14 w-auto object-contain mb-4"
+              onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'inline-block' }}
+            />
+            {/* Fallback */}
+            <div className="border-2 border-[#e3d1b8] p-[3px] mb-4" style={{ display: 'none' }}>
               <div className="border border-[#e3d1b8] px-3 py-1.5">
                 <p className="font-display font-black text-[#e3d1b8] text-xs leading-[1.2] tracking-[0.06em] uppercase">
                   THE DEFINITION<br />OF R&amp;B
@@ -27,7 +35,7 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Link columns */}
+          {/* ── Link columns ── */}
           {Object.entries(LINKS).map(([heading, links]) => (
             <div key={heading}>
               <h4 className="font-oswald text-[10px] tracking-[0.25em] text-[#e3d1b8]/45 uppercase mb-4 border-b border-[#e3d1b8]/10 pb-2">
@@ -46,7 +54,7 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Bottom bar */}
+        {/* ── Bottom bar ── */}
         <div className="border-t border-[#e3d1b8]/10 pt-5 flex flex-col sm:flex-row justify-between gap-2">
           <p className="font-inter text-[9px] tracking-[0.2em] text-[#e3d1b8]/22 uppercase">
             &copy; 2025 The Definition of R&amp;B. All Rights Reserved.
