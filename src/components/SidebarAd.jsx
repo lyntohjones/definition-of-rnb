@@ -12,19 +12,6 @@ import React from 'react'
 ─────────────────────────────────────────────────────────────── */
 
 export default function SidebarAd() {
-  return (
-    <div className="sticky top-20">
-      <p className="font-inter text-[9px] tracking-[0.25em] text-[#e3d1b8]/25 uppercase text-center mb-2">
-        Advertisement
-      </p>
-      <div
-        className="border border-dashed border-[#e3d1b8]/18 bg-[#4a2030] flex items-center justify-center w-full"
-        style={{ minHeight: '300px' }}
-      >
-        <p className="font-inter text-[10px] text-[#e3d1b8]/18 tracking-widest uppercase text-center leading-7">
-          Sidebar Ad<br />Google AdSense<br />300×600 / 300×250
-        </p>
-      </div>
-    </div>
-  )
+  // Hidden until AdSense is configured — uncomment the JSX below when ready
+  return null
 }

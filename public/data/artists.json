@@ -3,13 +3,29 @@
     "id": 1,
     "label": "Artist of the Week",
     "name": "Aqyila",
-    "bio": "Toronto-born Canadian-Jamaican R&B singer-songwriter with 67M+ streams and 849K monthly Spotify listeners. JUNO Award winner for Traditional R&B/Soul (2024) and Contemporary R&B (2025). Her debut LP 'Falling Into Place' dropped March 2025. Spotify RADAR Canada pick blending gospel, neo-soul, and Caribbean roots.",
+    "instagram": "aqyila",
+    "bio": "Toronto-born Canadian-Jamaican R&B singer-songwriter raised in Downsview. With 67M+ career streams and 849K monthly Spotify listeners, Aqyila blends gospel, neo-soul, and Caribbean roots into a sound that feels both timeless and fresh.",
     "photo": "https://image-cdn-fa.spotifycdn.com/image/ab676161000051742d84bcb34be64a4611b7a932",
     "songs": [
       { "title": "Bloom" },
       { "title": "Hello" },
       { "title": "Most Wanted" }
-    ]
+    ],
+    "feature": {
+      "album": "Falling Into Place",
+      "releaseDate": "March 28, 2025 — 11 tracks",
+      "paragraphs": [
+        "Aqyila spent months fine-tuning her debut LP with collaborators Maya J'an B, Jonathan Elkær, and Kasey Phillips. The result is a lush 11-track project that moves between late-night R&B vulnerability and Caribbean-tinged confidence. Two days after the album dropped, she took home Contemporary R&B/Soul Recording of the Year at the 2025 JUNOs for her single \"Bloom.\"",
+        "Raised in a Jamaican household in Toronto's Downsview neighbourhood, Aqyila's sound is rooted in the gospel, jazz, and soul records her family played on repeat. Her 2021 breakout \"Vibe for Me\" earned millions of streams and a cosign from Lizzo. Three years later she's a two-time JUNO winner, a Spotify RADAR pick, and one of the strongest new voices carrying R&B forward."
+      ],
+      "highlights": ["Bloom", "Most Wanted", "Wolf", "Breathless", "Limbo"],
+      "accolades": [
+        "JUNO Winner 2024 — Traditional R&B/Soul",
+        "JUNO Winner 2025 — Contemporary R&B",
+        "Spotify RADAR Canada",
+        "67M+ Career Streams"
+      ]
+    }
   },
   {
     "id": 2,

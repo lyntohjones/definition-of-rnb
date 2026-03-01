@@ -18,7 +18,11 @@ export default function BlogGrid() {
         return r.json()
       })
       .then((data) => {
-        setArtists(Array.isArray(data) ? data : [])
+        // Filter out Artist of the Week — they live in the Hero section
+        const grid = Array.isArray(data)
+          ? data.filter((a) => a.label !== 'Artist of the Week')
+          : []
+        setArtists(grid)
         setLoading(false)
       })
       .catch(() => {
