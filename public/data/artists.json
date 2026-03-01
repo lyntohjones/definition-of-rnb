@@ -1,6 +1,18 @@
 [
   {
     "id": 1,
+    "label": "Artist of the Week",
+    "name": "Aqyila",
+    "bio": "Toronto-born Canadian-Jamaican R&B singer-songwriter with 67M+ streams and 849K monthly Spotify listeners. JUNO Award winner for Traditional R&B/Soul (2024) and Contemporary R&B (2025). Her debut LP 'Falling Into Place' dropped March 2025. Spotify RADAR Canada pick blending gospel, neo-soul, and Caribbean roots.",
+    "photo": "https://image-cdn-fa.spotifycdn.com/image/ab676161000051742d84bcb34be64a4611b7a932",
+    "songs": [
+      { "title": "Bloom" },
+      { "title": "Hello" },
+      { "title": "Most Wanted" }
+    ]
+  },
+  {
+    "id": 2,
     "label": "Rising Artist",
     "name": "EJ Jones",
     "bio": "Memphis soul singer signed to Quality Control with Otis Redding-level vocals. Started posting phone-recorded Sam Cooke covers on Facebook before his breakout original \"Gas Station Love\" racked up 128K Spotify streams in days. Old soul energy channeling Bobby Womack and Johnnie Taylor.",
@@ -12,7 +24,7 @@
     ]
   },
   {
-    "id": 2,
+    "id": 3,
     "label": "Rising Artist",
     "name": "JayDon",
     "bio": "18-year-old R&B prodigy signed to Usher and L.A. Reid's mega label. Started as JD McCrary performing Jackson 5 covers that impressed Childish Gambino. His debut EP 'Me My Songs & I' hit #8 on Apple Music's R&B chart and \"Lullaby\" went #1 on Spotify Viral 50 in South Korea.",
@@ -24,7 +36,7 @@
     ]
   },
   {
-    "id": 3,
+    "id": 4,
     "label": "Up & Coming",
     "name": "Gabriel Jacoby",
     "bio": "South Carolina native with a smoky, raspy Southern falsetto over deep guitar grooves and funky horns. Debut EP 'Gutta Child' via Pulse Records, 4.3M+ streams across his catalog. Named a Shazam Fast Forward Artist and co-wrote for Shaboozey. Billboard R&B Fresh Pick.",
@@ -36,7 +48,7 @@
     ]
   },
   {
-    "id": 4,
+    "id": 5,
     "label": "New Artist",
     "name": "Pimmie",
     "bio": "Houston singer and mixing engineer who landed on Drake and PARTYNEXTDOOR's '$ome $exy $ongs 4 U' album. Debut EP 'BITTERSWEET' is a collection of smoldering late-night ballads. Her soulful vocals over lo-fi textures explore the raw side of modern relationships.",
@@ -48,7 +60,7 @@
     ]
   },
   {
-    "id": 5,
+    "id": 6,
     "label": "Up & Coming",
     "name": "Ebony Riley",
     "bio": "Former high-fashion model (Riley Montana) turned R&B vocalist signed to Interscope. Her single \"Mirror\" is an early-90s throwback produced by Bryan-Michael Cox and Jermaine Dupri. Classic soul meets contemporary R&B as she preps her debut album.",
@@ -60,7 +72,7 @@
     ]
   },
   {
-    "id": 6,
+    "id": 7,
     "label": "New Artist",
     "name": "Odeal",
     "bio": "British-Nigerian singer fusing R&B with Afrobeats and alte sensibilities. Billboard's African Rookie of the Year 2025 with 4.9M monthly Spotify listeners. His project 'The Summer That Saved Me' blends polished guitars and baritone vocals across a global R&B sound.",
