@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "label": "Rising Artist",
+    "name": "[Artist Name]",
+    "bio": "A boundary-pushing vocalist blending neo-soul textures with raw lyricism. Born and raised in Atlanta, their debut project earned critical praise for its emotional depth and sonic range.",
+    "photo": null,
+    "songs": [
+      { "title": "Latest Single Title" },
+      { "title": "Second Newest Track" },
+      { "title": "Third Newest Release" }
+    ]
+  },
+  {
+    "id": 2,
+    "label": "New Artist",
+    "name": "[Artist Name]",
+    "bio": "Emerging from London's underground scene, this self-produced artist crafts intimate bedroom R&B that has already attracted major-label attention and a rapidly growing fanbase.",
+    "photo": null,
+    "songs": [
+      { "title": "Latest Single Title" },
+      { "title": "Second Newest Track" },
+      { "title": "Third Newest Release" }
+    ]
+  },
+  {
+    "id": 3,
+    "label": "Up & Coming",
+    "name": "[Artist Name]",
+    "bio": "Toronto-based singer-songwriter fusing Caribbean influences with contemporary R&B. Their independent releases have accumulated millions of streams with no label backing.",
+    "photo": null,
+    "songs": [
+      { "title": "Latest Single Title" },
+      { "title": "Second Newest Track", "feat": "Feature Artist" },
+      { "title": "Third Newest Release" }
+    ]
+  },
+  {
+    "id": 4,
+    "label": "Rising Artist",
+    "name": "[Artist Name]",
+    "bio": "A Houston native redefining Southern R&B with cinematic production and confessional songwriting. Already co-signed by two prominent artists in the genre.",
+    "photo": null,
+    "songs": [
+      { "title": "Latest Single Title" },
+      { "title": "Second Newest Track" },
+      { "title": "Third Newest Release" }
+    ]
+  },
+  {
+    "id": 5,
+    "label": "New Artist",
+    "name": "[Artist Name]",
+    "bio": "Genre-fluid vocalist drawing from jazz, gospel, and modern R&B. Their viral live session clips have built a loyal following ahead of their anticipated debut EP.",
+    "photo": null,
+    "songs": [
+      { "title": "Latest Single Title" },
+      { "title": "Second Newest Track" },
+      { "title": "Third Newest Release", "feat": "Feature Artist" }
+    ]
+  },
+  {
+    "id": 6,
+    "label": "Up & Coming",
+    "name": "[Artist Name]",
+    "bio": "Los Angeles-based producer-vocalist crafting polished alt-R&B with dark, moody undertones. Their debut single debuted in the Top 40 on R&B streaming charts.",
+    "photo": null,
+    "songs": [
+      { "title": "Latest Single Title" },
+      { "title": "Second Newest Track" },
+      { "title": "Third Newest Release" }
+    ]
+  }
+]
