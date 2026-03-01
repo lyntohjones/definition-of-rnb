@@ -44,15 +44,18 @@ export default function Hero() {
 
       {/* ── Background image (right side, faded into bg) ── */}
       {photo && (
-        <div className="absolute right-0 top-0 bottom-0 w-[55%] md:w-[48%] pointer-events-none" aria-hidden="true">
+        <div className="absolute right-0 top-0 bottom-0 w-[60%] md:w-[52%] pointer-events-none" aria-hidden="true">
           <img
             src={photo}
             alt=""
             className="w-full h-full object-cover object-top"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#5c2a35] via-[#5c2a35]/80 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#5c2a35] via-transparent to-transparent" />
-          <div className="absolute inset-0 bg-[#5c2a35]/25" />
+          {/* Left edge fade — text stays readable */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#5c2a35] via-[#5c2a35]/60 to-transparent" />
+          {/* Soft bottom fade */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#5c2a35]/80 via-transparent to-transparent" />
+          {/* Light tint so face shows through */}
+          <div className="absolute inset-0 bg-[#5c2a35]/10" />
         </div>
       )}
 
