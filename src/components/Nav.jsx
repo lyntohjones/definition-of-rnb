@@ -7,15 +7,14 @@ export default function Nav() {
 
   return (
     <nav className="w-full bg-[#5c2a35] border-b border-[#e3d1b8]/20 sticky top-0 z-50">
-      <div className="max-w-screen-xl mx-auto px-6 h-[64px] flex items-center justify-between">
+      <div className="max-w-screen-xl mx-auto px-6 h-[80px] flex items-center justify-between">
 
         {/* ── Logo image ── */}
-        {/* Drop your logo file into D:\definition-of-rnb\public\ named "logo.png" */}
         <a href="/" className="flex-shrink-0">
           <img
             src="/logo.png"
             alt="The Definition of R&B"
-            className="h-10 w-auto object-contain"
+            className="h-16 w-auto object-contain"
             onError={(e) => {
               e.target.style.display = 'none'
               e.target.nextSibling.style.display = 'block'
