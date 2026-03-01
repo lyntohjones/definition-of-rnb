@@ -2,73 +2,73 @@
   {
     "id": 1,
     "label": "Rising Artist",
-    "name": "[Artist Name]",
-    "bio": "A boundary-pushing vocalist blending neo-soul textures with raw lyricism. Born and raised in Atlanta, their debut project earned critical praise for its emotional depth and sonic range.",
+    "name": "EJ Jones",
+    "bio": "Memphis soul singer signed to Quality Control with Otis Redding-level vocals. Started posting phone-recorded Sam Cooke covers on Facebook before his breakout original \"Gas Station Love\" racked up 128K Spotify streams in days. Old soul energy channeling Bobby Womack and Johnnie Taylor.",
     "photo": null,
     "songs": [
-      { "title": "Latest Single Title" },
-      { "title": "Second Newest Track" },
-      { "title": "Third Newest Release" }
+      { "title": "Gas Station Love" },
+      { "title": "Too Good" },
+      { "title": "Cover Me" }
     ]
   },
   {
     "id": 2,
-    "label": "New Artist",
-    "name": "[Artist Name]",
-    "bio": "Emerging from London's underground scene, this self-produced artist crafts intimate bedroom R&B that has already attracted major-label attention and a rapidly growing fanbase.",
+    "label": "Rising Artist",
+    "name": "JayDon",
+    "bio": "18-year-old R&B prodigy signed to Usher and L.A. Reid's mega label. Started as JD McCrary performing Jackson 5 covers that impressed Childish Gambino. His debut EP 'Me My Songs & I' hit #8 on Apple Music's R&B chart and \"Lullaby\" went #1 on Spotify Viral 50 in South Korea.",
     "photo": null,
     "songs": [
-      { "title": "Latest Single Title" },
-      { "title": "Second Newest Track" },
-      { "title": "Third Newest Release" }
+      { "title": "Lullaby", "feat": "Usher" },
+      { "title": "I'll Be Good" },
+      { "title": "Boujee Baby" }
     ]
   },
   {
     "id": 3,
     "label": "Up & Coming",
-    "name": "[Artist Name]",
-    "bio": "Toronto-based singer-songwriter fusing Caribbean influences with contemporary R&B. Their independent releases have accumulated millions of streams with no label backing.",
+    "name": "Gabriel Jacoby",
+    "bio": "South Carolina native with a smoky, raspy Southern falsetto over deep guitar grooves and funky horns. Debut EP 'Gutta Child' via Pulse Records, 4.3M+ streams across his catalog. Named a Shazam Fast Forward Artist and co-wrote for Shaboozey. Billboard R&B Fresh Pick.",
     "photo": null,
     "songs": [
-      { "title": "Latest Single Title" },
-      { "title": "Second Newest Track", "feat": "Feature Artist" },
-      { "title": "Third Newest Release" }
+      { "title": "The One" },
+      { "title": "Baby" },
+      { "title": "Bootleg" }
     ]
   },
   {
     "id": 4,
-    "label": "Rising Artist",
-    "name": "[Artist Name]",
-    "bio": "A Houston native redefining Southern R&B with cinematic production and confessional songwriting. Already co-signed by two prominent artists in the genre.",
+    "label": "New Artist",
+    "name": "Pimmie",
+    "bio": "Houston singer and mixing engineer who landed on Drake and PARTYNEXTDOOR's '$ome $exy $ongs 4 U' album. Debut EP 'BITTERSWEET' is a collection of smoldering late-night ballads. Her soulful vocals over lo-fi textures explore the raw side of modern relationships.",
     "photo": null,
     "songs": [
-      { "title": "Latest Single Title" },
-      { "title": "Second Newest Track" },
-      { "title": "Third Newest Release" }
+      { "title": "PIMMIE'S DILEMMA", "feat": "PARTYNEXTDOOR & Drake" },
+      { "title": "I'm Not Ready" },
+      { "title": "One Deep" }
     ]
   },
   {
     "id": 5,
-    "label": "New Artist",
-    "name": "[Artist Name]",
-    "bio": "Genre-fluid vocalist drawing from jazz, gospel, and modern R&B. Their viral live session clips have built a loyal following ahead of their anticipated debut EP.",
+    "label": "Up & Coming",
+    "name": "Ebony Riley",
+    "bio": "Former high-fashion model (Riley Montana) turned R&B vocalist signed to Interscope. Her single \"Mirror\" is an early-90s throwback produced by Bryan-Michael Cox and Jermaine Dupri. Classic soul meets contemporary R&B as she preps her debut album.",
     "photo": null,
     "songs": [
-      { "title": "Latest Single Title" },
-      { "title": "Second Newest Track" },
-      { "title": "Third Newest Release", "feat": "Feature Artist" }
+      { "title": "Only You" },
+      { "title": "Mirror" },
+      { "title": "Deuce Deuce" }
     ]
   },
   {
     "id": 6,
-    "label": "Up & Coming",
-    "name": "[Artist Name]",
-    "bio": "Los Angeles-based producer-vocalist crafting polished alt-R&B with dark, moody undertones. Their debut single debuted in the Top 40 on R&B streaming charts.",
+    "label": "New Artist",
+    "name": "Odeal",
+    "bio": "British-Nigerian singer fusing R&B with Afrobeats and alte sensibilities. Billboard's African Rookie of the Year 2025 with 4.9M monthly Spotify listeners. His project 'The Summer That Saved Me' blends polished guitars and baritone vocals across a global R&B sound.",
     "photo": null,
     "songs": [
-      { "title": "Latest Single Title" },
-      { "title": "Second Newest Track" },
-      { "title": "Third Newest Release" }
+      { "title": "Miami", "feat": "Leon Thomas" },
+      { "title": "Blame U" },
+      { "title": "London Summers" }
     ]
   }
 ]
