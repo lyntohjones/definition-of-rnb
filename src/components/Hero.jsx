@@ -42,20 +42,27 @@ export default function Hero() {
   return (
     <section className="relative w-full overflow-hidden bg-[#5c2a35]">
 
-      {/* ── Background image (right side, faded into bg) ── */}
+      {/* ── Background image (right side, all edges feathered into bg) ── */}
       {photo && (
-        <div className="absolute right-0 top-0 bottom-0 w-[60%] md:w-[52%] pointer-events-none" aria-hidden="true">
+        <div
+          className="absolute right-0 top-0 bottom-0 w-[65%] md:w-[55%] pointer-events-none"
+          aria-hidden="true"
+          style={{
+            WebkitMaskImage:
+              'linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 82%, transparent 100%)',
+            maskImage:
+              'linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 82%, transparent 100%)',
+            WebkitMaskComposite: 'destination-in',
+            maskComposite: 'intersect',
+          }}
+        >
           <img
             src={photo}
             alt=""
             className="w-full h-full object-cover object-top"
           />
-          {/* Left edge fade — text stays readable */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#5c2a35] via-[#5c2a35]/60 to-transparent" />
-          {/* Soft bottom fade */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#5c2a35]/80 via-transparent to-transparent" />
-          {/* Light tint so face shows through */}
-          <div className="absolute inset-0 bg-[#5c2a35]/10" />
+          {/* Subtle warm tint */}
+          <div className="absolute inset-0 bg-[#5c2a35]/15" />
         </div>
       )}
 
