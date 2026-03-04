@@ -42,16 +42,14 @@ export default function Hero() {
   return (
     <section className="relative w-full overflow-hidden bg-[#5c2a35]">
 
-      {/* ── Background image (right side, all edges feathered into bg) ── */}
+      {/* ── Artist headshot — clean portrait, face fully visible ── */}
       {photo && (
         <div
-          className="absolute right-0 top-0 bottom-0 w-[65%] md:w-[55%] pointer-events-none"
+          className="absolute right-0 top-0 bottom-0 w-[55%] md:w-[45%] pointer-events-none overflow-hidden"
           aria-hidden="true"
           style={{
-            WebkitMaskImage:
-              'linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 82%, transparent 100%)',
-            maskImage:
-              'linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 82%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 20%), linear-gradient(to top, transparent 0%, black 20%)',
+            maskImage: 'linear-gradient(to right, transparent 0%, black 20%), linear-gradient(to top, transparent 0%, black 20%)',
             WebkitMaskComposite: 'destination-in',
             maskComposite: 'intersect',
           }}
@@ -59,10 +57,9 @@ export default function Hero() {
           <img
             src={photo}
             alt=""
-            className="w-full h-full object-cover object-top"
+            className="w-full h-full object-cover"
+            style={{ objectPosition: '50% 20%' }}
           />
-          {/* Subtle warm tint */}
-          <div className="absolute inset-0 bg-[#5c2a35]/15" />
         </div>
       )}
 

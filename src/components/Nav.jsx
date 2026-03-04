@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 const NAV_LINKS = ['HOME', 'ARTISTS', 'MIXES', 'REVIEWS', 'FEATURES', 'SUBMIT']
 
-export default function Nav() {
+export default function Nav({ onSubmitClick }) {
   const [open, setOpen] = useState(false)
 
   return (
@@ -34,19 +34,31 @@ export default function Nav() {
         <ul className="hidden md:flex items-center gap-7">
           {NAV_LINKS.map((link) => (
             <li key={link}>
-              <a
-                href="#"
-                className="font-oswald text-[11px] font-medium tracking-[0.18em] text-[#e3d1b8] hover:text-[#e3d1b8]/60 transition-colors uppercase"
-              >
-                {link}
-              </a>
+              {link === 'SUBMIT' ? (
+                <button
+                  onClick={onSubmitClick}
+                  className="font-oswald text-[11px] font-medium tracking-[0.18em] text-[#e3d1b8] hover:text-[#e3d1b8]/60 transition-colors uppercase bg-transparent border-none cursor-pointer"
+                >
+                  {link}
+                </button>
+              ) : (
+                <a
+                  href="#"
+                  className="font-oswald text-[11px] font-medium tracking-[0.18em] text-[#e3d1b8] hover:text-[#e3d1b8]/60 transition-colors uppercase"
+                >
+                  {link}
+                </a>
+              )}
             </li>
           ))}
         </ul>
 
         {/* ── Submit Music CTA ── */}
         <div className="hidden md:block flex-shrink-0">
-          <button className="bg-[#e3d1b8] text-[#5c2a35] font-oswald font-bold text-[11px] tracking-[0.2em] uppercase px-5 py-2.5 hover:bg-white transition-colors">
+          <button
+            onClick={onSubmitClick}
+            className="bg-[#e3d1b8] text-[#5c2a35] font-oswald font-bold text-[11px] tracking-[0.2em] uppercase px-5 py-2.5 hover:bg-white transition-colors"
+          >
             SUBMIT MUSIC
           </button>
         </div>
@@ -69,13 +81,25 @@ export default function Nav() {
           <ul className="flex flex-col gap-4 mb-5">
             {NAV_LINKS.map((link) => (
               <li key={link}>
-                <a href="#" className="font-oswald text-sm tracking-widest text-[#e3d1b8] uppercase">
-                  {link}
-                </a>
+                {link === 'SUBMIT' ? (
+                  <button
+                    onClick={() => { setOpen(false); onSubmitClick?.() }}
+                    className="font-oswald text-sm tracking-widest text-[#e3d1b8] uppercase bg-transparent border-none cursor-pointer p-0"
+                  >
+                    {link}
+                  </button>
+                ) : (
+                  <a href="#" className="font-oswald text-sm tracking-widest text-[#e3d1b8] uppercase">
+                    {link}
+                  </a>
+                )}
               </li>
             ))}
           </ul>
-          <button className="w-full bg-[#e3d1b8] text-[#5c2a35] font-oswald font-bold text-sm tracking-widest uppercase py-2.5">
+          <button
+            onClick={() => { setOpen(false); onSubmitClick?.() }}
+            className="w-full bg-[#e3d1b8] text-[#5c2a35] font-oswald font-bold text-sm tracking-widest uppercase py-2.5"
+          >
             SUBMIT MUSIC
           </button>
         </div>
