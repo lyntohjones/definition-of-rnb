@@ -32,7 +32,7 @@ export default function BlogGrid() {
   }, [])
 
   return (
-    <section className="w-full bg-[#5c2a35] py-12 px-4">
+    <section id="artists" className="w-full bg-[#5c2a35] py-12 px-4">
       <div className="max-w-screen-xl mx-auto">
 
         {/* ── Section header ── */}

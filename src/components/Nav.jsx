@@ -1,16 +1,65 @@
 import React, { useState } from 'react'
-
-const NAV_LINKS = ['HOME', 'ARTISTS', 'REVIEWS', 'SUBMIT']
+import { useNavigate, useLocation } from 'react-router-dom'
 
 export default function Nav({ onSubmitClick }) {
   const [open, setOpen] = useState(false)
+  const navigate  = useNavigate()
+  const location  = useLocation()
+
+  /* ── Handle nav link clicks ── */
+  function handleNav(link, closeMobile = false) {
+    if (closeMobile) setOpen(false)
+
+    if (link === 'SUBMIT') {
+      onSubmitClick?.()
+      return
+    }
+
+    if (link === 'REVIEWS') {
+      navigate('/reviews')
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      return
+    }
+
+    if (link === 'HOME') {
+      if (location.pathname !== '/') {
+        navigate('/')
+        // scroll to top after navigation
+        setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 50)
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }
+      return
+    }
+
+    if (link === 'ARTISTS') {
+      if (location.pathname !== '/') {
+        navigate('/')
+        // after navigating home, scroll to #artists
+        setTimeout(() => {
+          const el = document.getElementById('artists')
+          if (el) el.scrollIntoView({ behavior: 'smooth' })
+        }, 150)
+      } else {
+        const el = document.getElementById('artists')
+        if (el) el.scrollIntoView({ behavior: 'smooth' })
+      }
+      return
+    }
+  }
+
+  const NAV_LINKS = ['HOME', 'ARTISTS', 'REVIEWS', 'SUBMIT']
 
   return (
     <nav className="w-full bg-[#5c2a35] border-b border-[#e3d1b8]/20 sticky top-0 z-50">
       <div className="max-w-screen-xl mx-auto px-6 h-[80px] flex items-center justify-between">
 
         {/* ── Logo image ── */}
-        <a href="/" className="flex-shrink-0">
+        <button
+          onClick={() => handleNav('HOME')}
+          className="flex-shrink-0 bg-transparent border-none p-0 cursor-pointer"
+          aria-label="Go to home"
+        >
           <img
             src="/logo.png"
             alt="The Definition of R&B"
@@ -20,7 +69,7 @@ export default function Nav({ onSubmitClick }) {
               e.target.nextSibling.style.display = 'block'
             }}
           />
-          {/* Fallback text box — shown only if logo.png is missing */}
+          {/* Fallback text box */}
           <div className="border-2 border-[#e3d1b8] p-[3px] hidden">
             <div className="border border-[#e3d1b8] px-2 py-[3px]">
               <p className="font-display font-black text-[#e3d1b8] text-[9px] leading-[1.15] tracking-[0.08em] uppercase">
@@ -28,27 +77,18 @@ export default function Nav({ onSubmitClick }) {
               </p>
             </div>
           </div>
-        </a>
+        </button>
 
         {/* ── Desktop nav links ── */}
         <ul className="hidden md:flex items-center gap-7">
           {NAV_LINKS.map((link) => (
             <li key={link}>
-              {link === 'SUBMIT' ? (
-                <button
-                  onClick={onSubmitClick}
-                  className="font-oswald text-[11px] font-medium tracking-[0.18em] text-[#e3d1b8] hover:text-[#e3d1b8]/60 transition-colors uppercase bg-transparent border-none cursor-pointer"
-                >
-                  {link}
-                </button>
-              ) : (
-                <a
-                  href="#"
-                  className="font-oswald text-[11px] font-medium tracking-[0.18em] text-[#e3d1b8] hover:text-[#e3d1b8]/60 transition-colors uppercase"
-                >
-                  {link}
-                </a>
-              )}
+              <button
+                onClick={() => handleNav(link)}
+                className="font-oswald text-[11px] font-medium tracking-[0.18em] text-[#e3d1b8] hover:text-[#e3d1b8]/60 transition-colors uppercase bg-transparent border-none cursor-pointer"
+              >
+                {link}
+              </button>
             </li>
           ))}
         </ul>
@@ -56,7 +96,7 @@ export default function Nav({ onSubmitClick }) {
         {/* ── Submit Music CTA ── */}
         <div className="hidden md:block flex-shrink-0">
           <button
-            onClick={onSubmitClick}
+            onClick={() => handleNav('SUBMIT')}
             className="bg-[#e3d1b8] text-[#5c2a35] font-oswald font-bold text-[11px] tracking-[0.2em] uppercase px-5 py-2.5 hover:bg-white transition-colors"
           >
             SUBMIT MUSIC
@@ -81,23 +121,17 @@ export default function Nav({ onSubmitClick }) {
           <ul className="flex flex-col gap-4 mb-5">
             {NAV_LINKS.map((link) => (
               <li key={link}>
-                {link === 'SUBMIT' ? (
-                  <button
-                    onClick={() => { setOpen(false); onSubmitClick?.() }}
-                    className="font-oswald text-sm tracking-widest text-[#e3d1b8] uppercase bg-transparent border-none cursor-pointer p-0"
-                  >
-                    {link}
-                  </button>
-                ) : (
-                  <a href="#" className="font-oswald text-sm tracking-widest text-[#e3d1b8] uppercase">
-                    {link}
-                  </a>
-                )}
+                <button
+                  onClick={() => handleNav(link, true)}
+                  className="font-oswald text-sm tracking-widest text-[#e3d1b8] uppercase bg-transparent border-none cursor-pointer p-0"
+                >
+                  {link}
+                </button>
               </li>
             ))}
           </ul>
           <button
-            onClick={() => { setOpen(false); onSubmitClick?.() }}
+            onClick={() => handleNav('SUBMIT', true)}
             className="w-full bg-[#e3d1b8] text-[#5c2a35] font-oswald font-bold text-sm tracking-widest uppercase py-2.5"
           >
             SUBMIT MUSIC
