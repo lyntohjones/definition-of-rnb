@@ -9,6 +9,7 @@ import Footer      from './components/Footer'
 import SubmitMusic from './components/SubmitMusic'
 import Reviews     from './pages/Reviews'
 import Promote     from './pages/Promote'
+import BlogPost    from './pages/BlogPost'
 
 /* ── Home page ── */
 function Home() {
@@ -31,11 +32,12 @@ function Home() {
 export default function App() {
   return (
     <Routes>
-      <Route path="/"        element={<Home />} />
-      <Route path="/reviews" element={<Reviews />} />
-      <Route path="/promote" element={<Promote />} />
+      <Route path="/"                           element={<Home />} />
+      <Route path="/reviews"                    element={<Reviews />} />
+      <Route path="/promote"                    element={<Promote />} />
+      <Route path="/blog/welcome-to-the-new-definition-of-rnb" element={<BlogPost />} />
       {/* Catch-all: redirect unknown paths back to home */}
-      <Route path="*"        element={<Home />} />
+      <Route path="*"                           element={<Home />} />
     </Routes>
   )
 }
