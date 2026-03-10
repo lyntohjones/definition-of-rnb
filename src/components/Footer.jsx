@@ -23,7 +23,7 @@ const LINK_CONFIG = {
     { label: 'Submit Music',   action: 'submit' },
     { label: 'Advertise',      route: '/promote' },
     { label: 'Privacy Policy', route: '/' },
-    { label: 'Contact',        href: 'mailto:contact@definitionofrnb.com' },
+    { label: 'Contact',        href: 'mailto:info@definitionofrnb.com' },
   ],
 }
 

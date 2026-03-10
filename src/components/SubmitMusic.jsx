@@ -71,7 +71,7 @@ export default function SubmitMusic({ onClose }) {
     }
 
     // Fallback: open mailto link
-    window.location.href = `mailto:submit@definitionofrnb.com?subject=${subject}&body=${body}`
+    window.location.href = `mailto:info@definitionofrnb.com?subject=${subject}&body=${body}`
     setStatus('sent')
   }
 

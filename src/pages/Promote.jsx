@@ -213,7 +213,7 @@ export default function Promote() {
 
                 {/* CTA */}
                 <a
-                  href={`mailto:features@definitionofrnb.com?subject=${encodeURIComponent(`Artist of the Week — ${tier.name}`)}&body=${encodeURIComponent('Hi,\n\nI\'m interested in the ' + tier.name + ' package.\n\nArtist Name:\nRelease:\nSpotify Link:\nInstagram:\n\nTell us a bit about yourself:')}`}
+                  href={`mailto:info@definitionofrnb.com?subject=${encodeURIComponent(`Artist of the Week — ${tier.name}`)}&body=${encodeURIComponent('Hi,\n\nI\'m interested in the ' + tier.name + ' package.\n\nArtist Name:\nRelease:\nSpotify Link:\nInstagram:\n\nTell us a bit about yourself:')}`}
                   className={`block text-center font-oswald font-bold text-[11px] tracking-[0.2em] uppercase px-6 py-3 transition-colors no-underline ${
                     tier.highlight
                       ? 'bg-[#e3d1b8] text-[#5c2a35] hover:bg-white'
@@ -291,14 +291,14 @@ export default function Promote() {
           </h3>
           <p className="font-inter text-[13px] text-[#e3d1b8]/50 leading-[1.8] mb-6">
             Email us directly at{' '}
-            <a href="mailto:features@definitionofrnb.com"
+            <a href="mailto:info@definitionofrnb.com"
               className="text-[#e3d1b8]/80 hover:text-[#e3d1b8] transition-colors">
-              features@definitionofrnb.com
+              info@definitionofrnb.com
             </a>{' '}
             with your artist name, release, and which package you're interested in. We'll take it from there.
           </p>
           <a
-            href="mailto:features@definitionofrnb.com?subject=Artist%20of%20the%20Week%20Inquiry"
+            href="mailto:info@definitionofrnb.com?subject=Artist%20of%20the%20Week%20Inquiry"
             className="inline-block bg-[#e3d1b8] text-[#5c2a35] font-oswald font-bold text-[11px] tracking-[0.2em] uppercase px-8 py-3 hover:bg-white transition-colors no-underline"
           >
             Email Us Now
