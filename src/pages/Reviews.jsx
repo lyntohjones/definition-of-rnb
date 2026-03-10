@@ -246,7 +246,7 @@ export default function Reviews() {
         ))}
       </main>
 
-      <Footer />
+      <Footer onSubmitClick={() => setShowSubmit(true)} />
       {showSubmit && <SubmitMusic onClose={() => setShowSubmit(false)} />}
     </div>
   )

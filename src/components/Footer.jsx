@@ -1,12 +1,63 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-const LINKS = {
-  Explore: ['Artists', 'Mixes', 'Reviews', 'Features', 'Interviews'],
-  Connect: ['Instagram', 'TikTok', 'YouTube', 'Twitter / X', 'Spotify'],
-  Legal:   ['About', 'Submit Music', 'Advertise', 'Privacy Policy', 'Contact'],
+/* ── Footer link config ──────────────────────────────────────────
+   route: internal path (uses navigate)
+   href:  external URL (opens in new tab)
+   action: special handler key
+────────────────────────────────────────────────────────────────── */
+const LINK_CONFIG = {
+  Explore: [
+    { label: 'Artists',      action: 'artists' },
+    { label: 'Reviews',      route: '/reviews' },
+  ],
+  Connect: [
+    { label: 'Instagram',    href: 'https://www.instagram.com/definitionofrnb/' },
+    { label: 'TikTok',       href: 'https://www.tiktok.com/@definitionofrnb' },
+    { label: 'YouTube',      href: 'https://www.youtube.com/@definitionofrnb' },
+    { label: 'Twitter / X',  href: 'https://twitter.com/definitionofrnb' },
+    { label: 'Spotify',      href: 'https://open.spotify.com/user/definitionofrnb' },
+  ],
+  Legal: [
+    { label: 'About',          route: '/' },
+    { label: 'Submit Music',   action: 'submit' },
+    { label: 'Advertise',      route: '/promote' },
+    { label: 'Privacy Policy', route: '/' },
+    { label: 'Contact',        href: 'mailto:contact@definitionofrnb.com' },
+  ],
 }
 
-export default function Footer() {
+export default function Footer({ onSubmitClick }) {
+  const navigate = useNavigate()
+
+  function handleClick(item) {
+    if (item.href) {
+      window.open(item.href, '_blank', 'noopener noreferrer')
+      return
+    }
+    if (item.action === 'submit') {
+      onSubmitClick?.()
+      return
+    }
+    if (item.action === 'artists') {
+      if (window.location.pathname !== '/') {
+        navigate('/')
+        setTimeout(() => {
+          const el = document.getElementById('artists')
+          if (el) el.scrollIntoView({ behavior: 'smooth' })
+        }, 150)
+      } else {
+        const el = document.getElementById('artists')
+        if (el) el.scrollIntoView({ behavior: 'smooth' })
+      }
+      return
+    }
+    if (item.route) {
+      navigate(item.route)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
+
   return (
     <footer className="w-full bg-[#2a0f16] border-t border-[#e3d1b8]/10 py-12 px-4">
       <div className="max-w-screen-xl mx-auto">
@@ -15,7 +66,6 @@ export default function Footer() {
 
           {/* ── Brand block ── */}
           <div className="col-span-2 md:col-span-1">
-            {/* Logo image — drop logo.png into public/ */}
             <img
               src="/logo.png"
               alt="The Definition of R&B"
@@ -31,22 +81,25 @@ export default function Footer() {
               </div>
             </div>
             <p className="font-inter text-[11px] text-[#e3d1b8]/38 leading-relaxed max-w-[200px]">
-              The definitive source for R&amp;B culture, artists, mixes, and music criticism. Est. 2025.
+              The definitive source for R&amp;B culture, artists, and music criticism. Est. 2025.
             </p>
           </div>
 
           {/* ── Link columns ── */}
-          {Object.entries(LINKS).map(([heading, links]) => (
+          {Object.entries(LINK_CONFIG).map(([heading, links]) => (
             <div key={heading}>
               <h4 className="font-oswald text-[10px] tracking-[0.25em] text-[#e3d1b8]/45 uppercase mb-4 border-b border-[#e3d1b8]/10 pb-2">
                 {heading}
               </h4>
               <ul className="space-y-2.5">
-                {links.map((link) => (
-                  <li key={link}>
-                    <a href="#" className="font-inter text-[11px] text-[#e3d1b8]/38 hover:text-[#e3d1b8] transition-colors">
-                      {link}
-                    </a>
+                {links.map((item) => (
+                  <li key={item.label}>
+                    <button
+                      onClick={() => handleClick(item)}
+                      className="font-inter text-[11px] text-[#e3d1b8]/38 hover:text-[#e3d1b8] transition-colors bg-transparent border-none cursor-pointer p-0 text-left"
+                    >
+                      {item.label}
+                    </button>
                   </li>
                 ))}
               </ul>

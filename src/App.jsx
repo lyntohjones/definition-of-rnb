@@ -8,6 +8,7 @@ import BlogGrid    from './components/BlogGrid'
 import Footer      from './components/Footer'
 import SubmitMusic from './components/SubmitMusic'
 import Reviews     from './pages/Reviews'
+import Promote     from './pages/Promote'
 
 /* ── Home page ── */
 function Home() {
@@ -21,7 +22,7 @@ function Home() {
       </div>
       <InFeedAd />
       <BlogGrid />
-      <Footer />
+      <Footer onSubmitClick={() => setShowSubmit(true)} />
       {showSubmit && <SubmitMusic onClose={() => setShowSubmit(false)} />}
     </div>
   )
@@ -32,6 +33,7 @@ export default function App() {
     <Routes>
       <Route path="/"        element={<Home />} />
       <Route path="/reviews" element={<Reviews />} />
+      <Route path="/promote" element={<Promote />} />
       {/* Catch-all: redirect unknown paths back to home */}
       <Route path="*"        element={<Home />} />
     </Routes>
