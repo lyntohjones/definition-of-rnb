@@ -11,6 +11,7 @@ import SEO         from './components/SEO'
 import Reviews     from './pages/Reviews'
 import Promote     from './pages/Promote'
 import BlogPost    from './pages/BlogPost'
+import About      from './pages/About'
 
 /* ── Home page JSON-LD ── */
 const HOME_JSON_LD = {
@@ -98,6 +99,7 @@ export default function App() {
       <Route path="/reviews"                                     element={<Reviews />} />
       <Route path="/promote"                                     element={<Promote />} />
       <Route path="/blog/welcome-to-the-new-definition-of-rnb"  element={<BlogPost />} />
+      <Route path="/about"                                       element={<About />} />
       <Route path="*"                                            element={<Home />} />
     </Routes>
   )

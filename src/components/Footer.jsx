@@ -19,7 +19,7 @@ const LINK_CONFIG = {
     { label: 'Spotify',      href: 'https://open.spotify.com/user/definitionofrnb' },
   ],
   Legal: [
-    { label: 'About',          route: '/' },
+    { label: 'About',          route: '/about' },
     { label: 'Submit Music',   action: 'submit' },
     { label: 'Advertise',      route: '/promote' },
     { label: 'Privacy Policy', route: '/' },
