@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const NAV_LINKS = ['HOME', 'ARTISTS', 'MIXES', 'REVIEWS', 'FEATURES', 'SUBMIT']
+const NAV_LINKS = ['HOME', 'ARTISTS', 'REVIEWS', 'SUBMIT']
 
 export default function Nav({ onSubmitClick }) {
   const [open, setOpen] = useState(false)
