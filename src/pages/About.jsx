@@ -84,7 +84,7 @@ export default function About() {
           </h1>
 
           <p className="font-inter text-[14px] text-[#e3d1b8]/55 max-w-[620px] leading-[1.8]">
-            A music platform dedicated to documenting, discovering, and celebrating Rhythm and Blues across generations.
+            Est. 2011 — A Division of the Definition of Music Group. A music platform dedicated to documenting, discovering, and celebrating Rhythm and Blues across generations.
           </p>
         </div>
       </header>

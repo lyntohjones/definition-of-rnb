@@ -81,7 +81,7 @@ export default function Footer({ onSubmitClick }) {
               </div>
             </div>
             <p className="font-inter text-[11px] text-[#e3d1b8]/38 leading-relaxed max-w-[200px]">
-              The definitive source for R&amp;B culture, artists, and music criticism. Est. 2025.
+              The definitive source for R&amp;B culture, artists, and music criticism. Est. 2011. A Division of the Definition of Music Group.
             </p>
           </div>
 
@@ -110,7 +110,7 @@ export default function Footer({ onSubmitClick }) {
         {/* ── Bottom bar ── */}
         <div className="border-t border-[#e3d1b8]/10 pt-5 flex flex-col sm:flex-row justify-between gap-2">
           <p className="font-inter text-[9px] tracking-[0.2em] text-[#e3d1b8]/22 uppercase">
-            &copy; 2025 The Definition of R&amp;B. All Rights Reserved.
+            &copy; 2011–2026 The Definition of R&amp;B. All Rights Reserved. A Division of the Definition of Music Group.
           </p>
           <p className="font-inter text-[9px] tracking-[0.2em] text-[#e3d1b8]/15 uppercase">
             Built for the culture.
