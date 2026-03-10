@@ -6,6 +6,7 @@
     "instagram": "aqyila",
     "bio": "Toronto-born Canadian-Jamaican R&B singer-songwriter raised in Downsview. With 67M+ career streams and 849K monthly Spotify listeners, Aqyila blends gospel, neo-soul, and Caribbean roots into a sound that feels both timeless and fresh.",
     "photo": "/images/aqyila.png",
+    "photoFocus": "50% 15%",
     "songs": [
       { "title": "Bloom" },
       { "title": "Hello" },
