@@ -14,7 +14,9 @@ export default function App() {
     <div className="min-h-screen bg-[#5c2a35]">
       <Nav onSubmitClick={() => setShowSubmit(true)} />
       <TopAdBanner />
-      <Hero />
+      <div className="relative">
+        <Hero />
+      </div>
       <InFeedAd />
       <BlogGrid />
       <Footer />

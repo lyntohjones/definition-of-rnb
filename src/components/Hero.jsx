@@ -40,16 +40,42 @@ export default function Hero() {
   const { name, bio, photo, songs = [], feature, instagram } = featured
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#5c2a35]">
+    <section className="w-full bg-[#5c2a35] overflow-hidden">
 
-      {/* ── Artist headshot — clean portrait, face fully visible ── */}
+      {/* ─────────────────────────────────────────────────────────────
+          MOBILE LAYOUT  (< md)
+          Artist image displayed full-width above the text content
+      ───────────────────────────────────────────────────────────── */}
+      {photo && (
+        <div className="block md:hidden w-full relative" style={{ aspectRatio: '4/3' }}>
+          <img
+            src={photo}
+            alt={name}
+            className="w-full h-full object-cover object-top"
+          />
+          {/* Bottom fade so the image blends into the content below */}
+          <div
+            className="absolute inset-x-0 bottom-0 h-24 pointer-events-none"
+            style={{
+              background: 'linear-gradient(to bottom, transparent, #5c2a35)',
+            }}
+          />
+        </div>
+      )}
+
+      {/* ─────────────────────────────────────────────────────────────
+          DESKTOP LAYOUT  (≥ md)
+          Artist image pinned to the right as a decorative background
+      ───────────────────────────────────────────────────────────── */}
       {photo && (
         <div
-          className="absolute right-0 top-0 bottom-0 w-[55%] md:w-[45%] pointer-events-none overflow-hidden"
+          className="hidden md:block absolute right-0 top-0 bottom-0 w-[45%] pointer-events-none overflow-hidden"
           aria-hidden="true"
           style={{
-            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 20%), linear-gradient(to top, transparent 0%, black 20%)',
-            maskImage: 'linear-gradient(to right, transparent 0%, black 20%), linear-gradient(to top, transparent 0%, black 20%)',
+            WebkitMaskImage:
+              'linear-gradient(to right, transparent 0%, black 20%), linear-gradient(to top, transparent 0%, black 20%)',
+            maskImage:
+              'linear-gradient(to right, transparent 0%, black 20%), linear-gradient(to top, transparent 0%, black 20%)',
             WebkitMaskComposite: 'destination-in',
             maskComposite: 'intersect',
           }}
@@ -63,12 +89,14 @@ export default function Hero() {
         </div>
       )}
 
-      {/* ── Hero content ── */}
-      <div className="relative z-10 max-w-screen-xl mx-auto px-6 py-14 md:py-20">
+      {/* ─────────────────────────────────────────────────────────────
+          CONTENT  (shared across breakpoints)
+      ───────────────────────────────────────────────────────────── */}
+      <div className="relative z-10 max-w-screen-xl mx-auto px-5 sm:px-6 py-8 md:py-20">
         <div className="max-w-[680px]">
 
           {/* Label line */}
-          <div className="flex items-center gap-3 mb-5">
+          <div className="flex items-center gap-3 mb-4 md:mb-5">
             <div className="w-8 h-[1px] bg-[#e3d1b8]/40" />
             <span className="font-oswald text-[10px] tracking-[0.4em] text-[#e3d1b8]/50 uppercase">
               Featured Artist of the Week
@@ -77,20 +105,20 @@ export default function Hero() {
 
           {/* Artist name — big type */}
           <h1
-            className="font-oswald font-bold text-[#e3d1b8] uppercase leading-[0.92] mb-6"
-            style={{ fontSize: 'clamp(3.2rem, 8vw, 7rem)' }}
+            className="font-oswald font-bold text-[#e3d1b8] uppercase leading-[0.92] mb-5 md:mb-6"
+            style={{ fontSize: 'clamp(2.6rem, 10vw, 7rem)' }}
           >
             {name}
           </h1>
 
           {/* Short bio */}
-          <p className="font-inter text-[13px] md:text-[14px] text-[#e3d1b8]/65 leading-[1.8] mb-6 max-w-[580px]">
+          <p className="font-inter text-[13px] md:text-[14px] text-[#e3d1b8]/65 leading-[1.8] mb-5 md:mb-6 max-w-[580px]">
             {bio}
           </p>
 
           {/* ── Feature writeup ── */}
           {feature && (
-            <div className="mb-8">
+            <div className="mb-7 md:mb-8">
 
               {/* New release header */}
               {feature.album && (
@@ -98,8 +126,10 @@ export default function Hero() {
                   <p className="font-oswald text-[9px] tracking-[0.35em] text-[#e3d1b8]/40 uppercase mb-1">
                     Latest Release
                   </p>
-                  <p className="font-oswald text-[#e3d1b8]/90 uppercase tracking-wide"
-                     style={{ fontSize: 'clamp(1rem, 2vw, 1.4rem)' }}>
+                  <p
+                    className="font-oswald text-[#e3d1b8]/90 uppercase tracking-wide"
+                    style={{ fontSize: 'clamp(1rem, 2vw, 1.4rem)' }}
+                  >
                     {feature.album}
                   </p>
                   {feature.releaseDate && (
@@ -111,11 +141,15 @@ export default function Hero() {
               )}
 
               {/* Feature paragraphs */}
-              {feature.paragraphs && feature.paragraphs.map((p, i) => (
-                <p key={i} className="font-inter text-[12px] md:text-[13px] text-[#e3d1b8]/55 leading-[1.8] mb-4 max-w-[560px]">
-                  {p}
-                </p>
-              ))}
+              {feature.paragraphs &&
+                feature.paragraphs.map((p, i) => (
+                  <p
+                    key={i}
+                    className="font-inter text-[12px] md:text-[13px] text-[#e3d1b8]/55 leading-[1.8] mb-4 max-w-[560px]"
+                  >
+                    {p}
+                  </p>
+                ))}
 
               {/* Key tracks with Spotify links */}
               {feature.highlights && feature.highlights.length > 0 && (
@@ -191,7 +225,7 @@ export default function Hero() {
           )}
 
           {/* ── CTA buttons ── */}
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-3 pb-8 md:pb-0">
             <a
               href={spotifyUrl(name)}
               target="_blank"
