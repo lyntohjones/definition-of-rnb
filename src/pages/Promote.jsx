@@ -11,7 +11,16 @@ const IconCheck = () => (
   </svg>
 )
 
-/* ── Feature tier data ── */
+/* ── Press-state helpers ── */
+const press = {
+  onMouseDown:  (e) => { e.currentTarget.style.transform = 'scale(0.97)' },
+  onMouseUp:    (e) => { e.currentTarget.style.transform = 'scale(1)' },
+  onMouseLeave: (e) => { e.currentTarget.style.transform = 'scale(1)' },
+  onTouchStart: (e) => { e.currentTarget.style.transform = 'scale(0.97)' },
+  onTouchEnd:   (e) => { e.currentTarget.style.transform = 'scale(1)' },
+}
+
+/* ── Tiers ── */
 const TIERS = [
   {
     id: 'standard',
@@ -67,7 +76,7 @@ const TIERS = [
   },
 ]
 
-/* ── What's included breakdown ── */
+/* ── Breakdown steps ── */
 const BREAKDOWN = [
   {
     step: '01',
@@ -87,7 +96,7 @@ const BREAKDOWN = [
   {
     step: '04',
     title: 'Social Amplification',
-    body: 'Your feature gets pushed across our Instagram, TikTok, Twitter/X, and YouTube channels. We create content around your story — not just a repost. Our audience is built from genuine R&B fans who discover new music through us.',
+    body: "Your feature gets pushed across our Instagram, TikTok, Twitter/X, and YouTube channels. We create content around your story — not just a repost. Our audience is built from genuine R&B fans who discover new music through us.",
   },
   {
     step: '05',
@@ -95,6 +104,77 @@ const BREAKDOWN = [
     body: 'Your artist card lives in the Up & Coming Artists grid on the homepage for the duration of your feature. New visitors browsing the site will discover your music alongside other curated R&B artists.',
   },
 ]
+
+/* ── Tier card ── */
+function TierCard({ tier }) {
+  const emailSubject = encodeURIComponent(`Artist of the Week — ${tier.name}`)
+  const emailBody = encodeURIComponent(
+    `Hi,\n\nI'm interested in the ${tier.name} package.\n\nArtist Name:\nRelease:\nSpotify Link:\nInstagram:\n\nTell us a bit about yourself:`
+  )
+
+  return (
+    <div
+      className={`flex flex-col border p-6 ${tier.highlight ? 'border-[#e3d1b8]/50 bg-[#5c2a35]' : 'border-[#e3d1b8]/15 bg-[#2a0f16]'}`}
+      style={{ transition: 'transform 250ms cubic-bezier(0.22,1,0.36,1), border-color 250ms cubic-bezier(0.22,1,0.36,1)' }}
+      onMouseEnter={e => {
+        e.currentTarget.style.transform = 'translateY(-4px)'
+        e.currentTarget.style.borderColor = tier.highlight ? 'rgba(227,209,184,0.75)' : 'rgba(227,209,184,0.3)'
+      }}
+      onMouseLeave={e => {
+        e.currentTarget.style.transform = 'translateY(0)'
+        e.currentTarget.style.borderColor = tier.highlight ? 'rgba(227,209,184,0.5)' : 'rgba(227,209,184,0.15)'
+      }}
+    >
+      {/* Tier header */}
+      <div className="mb-5">
+        <div className="flex items-center gap-2 mb-3">
+          <span className={`font-oswald text-[9px] tracking-[0.25em] uppercase px-2 py-[3px] ${tier.tagColor}`}>
+            {tier.tag}
+          </span>
+        </div>
+        <h3
+          className="font-oswald font-bold text-[#e3d1b8] uppercase tracking-wide mb-1"
+          style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)' }}
+        >
+          {tier.name}
+        </h3>
+        <p className="font-oswald text-[#e3d1b8]/50 mb-3" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)' }}>
+          {tier.price}
+        </p>
+        <p className="font-inter text-[12px] text-[#e3d1b8]/50 leading-[1.7]">{tier.description}</p>
+      </div>
+
+      {/* Includes list */}
+      <ul className="space-y-3 flex-1 mb-6">
+        {tier.includes.map((item, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <IconCheck />
+            <span className="font-inter text-[11px] text-[#e3d1b8]/60 leading-[1.6]">{item}</span>
+          </li>
+        ))}
+      </ul>
+
+      {/* CTA */}
+      <a
+        href={`mailto:info@definitionofrnb.com?subject=${emailSubject}&body=${emailBody}`}
+        className={`block text-center font-oswald font-bold text-[11px] tracking-[0.2em] uppercase px-6 py-3 no-underline
+          ${tier.highlight ? 'bg-[#e3d1b8] text-[#5c2a35]' : 'border border-[#e3d1b8]/40 text-[#e3d1b8]'}`}
+        style={{ transition: 'background-color 200ms cubic-bezier(0.22,1,0.36,1), border-color 200ms cubic-bezier(0.22,1,0.36,1), transform 150ms cubic-bezier(0.64,0,0.78,0)' }}
+        onMouseEnter={e => {
+          if (tier.highlight) { e.currentTarget.style.backgroundColor = '#fff' }
+          else { e.currentTarget.style.backgroundColor = 'rgba(227,209,184,0.1)'; e.currentTarget.style.borderColor = 'rgba(227,209,184,0.65)' }
+        }}
+        onMouseLeave={e => {
+          if (tier.highlight) { e.currentTarget.style.backgroundColor = '#e3d1b8' }
+          else { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.borderColor = 'rgba(227,209,184,0.4)'; e.currentTarget.style.transform = 'scale(1)' }
+        }}
+        {...press}
+      >
+        Get Featured
+      </a>
+    </div>
+  )
+}
 
 export default function Promote() {
   const [showSubmit, setShowSubmit] = useState(false)
@@ -119,7 +199,7 @@ export default function Promote() {
             Artist of the Week
           </h1>
           <p className="font-inter text-[14px] text-[#e3d1b8]/55 max-w-[600px] leading-[1.8]">
-            Get your music in front of a dedicated R&B audience. The Definition of R&B features one artist every week across the homepage, editorial, and social channels. Here's exactly what you get.
+            Get your music in front of a dedicated R&amp;B audience. The Definition of R&amp;B features one artist every week across the homepage, editorial, and social channels. Here's exactly what you get.
           </p>
         </div>
       </header>
@@ -128,10 +208,7 @@ export default function Promote() {
       <section className="max-w-screen-xl mx-auto px-4 sm:px-6 py-14">
         <div className="mb-10">
           <p className="font-oswald text-[10px] tracking-[0.4em] text-[#e3d1b8]/35 uppercase mb-2">◆ What You Get ◆</p>
-          <h2
-            className="font-oswald font-bold text-[#e3d1b8] uppercase"
-            style={{ fontSize: 'clamp(1.4rem, 3vw, 2rem)' }}
-          >
+          <h2 className="font-oswald font-bold text-[#e3d1b8] uppercase" style={{ fontSize: 'clamp(1.4rem, 3vw, 2rem)' }}>
             The Feature Breakdown
           </h2>
           <div className="w-10 h-[1px] bg-[#e3d1b8]/30 mt-3" />
@@ -139,13 +216,21 @@ export default function Promote() {
 
         <div className="space-y-0 divide-y divide-[#e3d1b8]/10 border border-[#e3d1b8]/10">
           {BREAKDOWN.map((item) => (
-            <div key={item.step} className="flex gap-6 px-6 py-7 hover:bg-[#e3d1b8]/[0.02] transition-colors">
+            <div
+              key={item.step}
+              className="flex gap-6 px-6 py-7"
+              style={{ transition: 'background-color 200ms cubic-bezier(0.22,1,0.36,1)' }}
+              onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'rgba(227,209,184,0.02)' }}
+              onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent' }}
+            >
               <div className="flex-shrink-0 w-10">
                 <span className="font-oswald text-[#e3d1b8]/20 text-2xl font-bold">{item.step}</span>
               </div>
               <div>
-                <h3 className="font-oswald font-bold text-[#e3d1b8] uppercase tracking-wide mb-2"
-                  style={{ fontSize: 'clamp(0.95rem, 2vw, 1.15rem)' }}>
+                <h3
+                  className="font-oswald font-bold text-[#e3d1b8] uppercase tracking-wide mb-2"
+                  style={{ fontSize: 'clamp(0.95rem, 2vw, 1.15rem)' }}
+                >
                   {item.title}
                 </h3>
                 <p className="font-inter text-[13px] text-[#e3d1b8]/55 leading-[1.8] max-w-[680px]">
@@ -162,80 +247,22 @@ export default function Promote() {
         <div className="max-w-screen-xl mx-auto">
           <div className="text-center mb-10">
             <p className="font-oswald text-[10px] tracking-[0.4em] text-[#e3d1b8]/35 uppercase mb-2">◆ Packages ◆</p>
-            <h2
-              className="font-oswald font-bold text-[#e3d1b8] uppercase"
-              style={{ fontSize: 'clamp(1.4rem, 3vw, 2rem)' }}
-            >
+            <h2 className="font-oswald font-bold text-[#e3d1b8] uppercase" style={{ fontSize: 'clamp(1.4rem, 3vw, 2rem)' }}>
               Choose Your Feature
             </h2>
             <div className="w-10 h-[1px] bg-[#e3d1b8]/30 mx-auto mt-3" />
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {TIERS.map((tier) => (
-              <div
-                key={tier.id}
-                className={`flex flex-col border p-6 ${
-                  tier.highlight
-                    ? 'border-[#e3d1b8]/50 bg-[#5c2a35]'
-                    : 'border-[#e3d1b8]/15 bg-[#2a0f16]'
-                }`}
-              >
-                {/* Tier header */}
-                <div className="mb-5">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className={`font-oswald text-[9px] tracking-[0.25em] uppercase px-2 py-[3px] ${tier.tagColor}`}>
-                      {tier.tag}
-                    </span>
-                  </div>
-                  <h3 className="font-oswald font-bold text-[#e3d1b8] uppercase tracking-wide mb-1"
-                    style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)' }}>
-                    {tier.name}
-                  </h3>
-                  <p className="font-oswald text-[#e3d1b8]/50 mb-3"
-                    style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)' }}>
-                    {tier.price}
-                  </p>
-                  <p className="font-inter text-[12px] text-[#e3d1b8]/50 leading-[1.7]">
-                    {tier.description}
-                  </p>
-                </div>
-
-                {/* Includes list */}
-                <ul className="space-y-3 flex-1 mb-6">
-                  {tier.includes.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <IconCheck />
-                      <span className="font-inter text-[11px] text-[#e3d1b8]/60 leading-[1.6]">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA */}
-                <a
-                  href={`mailto:info@definitionofrnb.com?subject=${encodeURIComponent(`Artist of the Week — ${tier.name}`)}&body=${encodeURIComponent('Hi,\n\nI\'m interested in the ' + tier.name + ' package.\n\nArtist Name:\nRelease:\nSpotify Link:\nInstagram:\n\nTell us a bit about yourself:')}`}
-                  className={`block text-center font-oswald font-bold text-[11px] tracking-[0.2em] uppercase px-6 py-3 transition-colors no-underline ${
-                    tier.highlight
-                      ? 'bg-[#e3d1b8] text-[#5c2a35] hover:bg-white'
-                      : 'border border-[#e3d1b8]/40 text-[#e3d1b8] hover:bg-[#e3d1b8]/10'
-                  }`}
-                >
-                  Get Featured
-                </a>
-              </div>
-            ))}
+            {TIERS.map((tier) => <TierCard key={tier.id} tier={tier} />)}
           </div>
         </div>
       </section>
 
-      {/* ── FAQ / fine print ── */}
+      {/* ── FAQ ── */}
       <section className="max-w-screen-xl mx-auto px-4 sm:px-6 py-14">
         <div className="mb-8">
           <p className="font-oswald text-[10px] tracking-[0.4em] text-[#e3d1b8]/35 uppercase mb-2">◆ Good to Know ◆</p>
-          <h2
-            className="font-oswald font-bold text-[#e3d1b8] uppercase"
-            style={{ fontSize: 'clamp(1.4rem, 3vw, 2rem)' }}
-          >
+          <h2 className="font-oswald font-bold text-[#e3d1b8] uppercase" style={{ fontSize: 'clamp(1.4rem, 3vw, 2rem)' }}>
             How It Works
           </h2>
           <div className="w-10 h-[1px] bg-[#e3d1b8]/30 mt-3" />
@@ -243,63 +270,48 @@ export default function Promote() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-[860px]">
           {[
-            {
-              q: 'Who is this for?',
-              a: 'Independent R&B artists, singer-songwriters, producers, and labels looking to build awareness with a targeted R&B audience. We do not feature genres outside of R&B, Soul, Neo-Soul, and related styles.',
-            },
-            {
-              q: 'How do I book a feature?',
-              a: 'Click "Get Featured" on any package above. We\'ll respond within 48 hours to confirm your slot, collect your assets (photo, bio, links), and schedule your feature week.',
-            },
-            {
-              q: 'What assets do I need to provide?',
-              a: 'A high-resolution artist photo (minimum 1200px wide), a short bio (2–4 sentences), your Spotify and Instagram links, and the title of the release you want featured.',
-            },
-            {
-              q: 'Is the review guaranteed to be positive?',
-              a: 'We write honest editorial. We only accept artists we genuinely believe in — if we don\'t think your music is ready, we\'ll tell you and suggest resubmitting when the time is right.',
-            },
-            {
-              q: 'How far in advance should I book?',
-              a: 'We recommend booking at least 2 weeks before your desired feature date, especially around album or single release windows. Slots fill quickly.',
-            },
-            {
-              q: 'Can I submit without paying?',
-              a: 'Yes. We also consider organic submissions through the Submit Music form. Paid features guarantee placement and editorial coverage; organic submissions are reviewed at our discretion.',
-            },
+            { q: 'Who is this for?', a: 'Independent R&B artists, singer-songwriters, producers, and labels looking to build awareness with a targeted R&B audience. We do not feature genres outside of R&B, Soul, Neo-Soul, and related styles.' },
+            { q: 'How do I book a feature?', a: "Click "Get Featured" on any package above. We'll respond within 48 hours to confirm your slot, collect your assets (photo, bio, links), and schedule your feature week." },
+            { q: 'What assets do I need to provide?', a: 'A high-resolution artist photo (minimum 1200px wide), a short bio (2–4 sentences), your Spotify and Instagram links, and the title of the release you want featured.' },
+            { q: 'Is the review guaranteed to be positive?', a: "We write honest editorial. We only accept artists we genuinely believe in — if we don't think your music is ready, we'll tell you and suggest resubmitting when the time is right." },
+            { q: 'How far in advance should I book?', a: 'We recommend booking at least 2 weeks before your desired feature date, especially around album or single release windows. Slots fill quickly.' },
+            { q: 'Can I submit without paying?', a: 'Yes. We also consider organic submissions through the Submit Music form. Paid features guarantee placement and editorial coverage; organic submissions are reviewed at our discretion.' },
           ].map((faq) => (
             <div key={faq.q} className="border-l-2 border-[#e3d1b8]/20 pl-5">
-              <p className="font-oswald text-[#e3d1b8]/80 uppercase tracking-wide mb-2"
-                style={{ fontSize: 'clamp(0.85rem, 1.5vw, 1rem)' }}>
+              <p className="font-oswald text-[#e3d1b8]/80 uppercase tracking-wide mb-2" style={{ fontSize: 'clamp(0.85rem, 1.5vw, 1rem)' }}>
                 {faq.q}
               </p>
-              <p className="font-inter text-[12px] text-[#e3d1b8]/50 leading-[1.8]">
-                {faq.a}
-              </p>
+              <p className="font-inter text-[12px] text-[#e3d1b8]/50 leading-[1.8]">{faq.a}</p>
             </div>
           ))}
         </div>
 
         {/* Final CTA */}
         <div className="mt-12 border border-[#e3d1b8]/15 p-8 max-w-[600px]">
-          <p className="font-oswald text-[9px] tracking-[0.35em] text-[#e3d1b8]/35 uppercase mb-3">
-            Ready to get featured?
-          </p>
-          <h3 className="font-oswald font-bold text-[#e3d1b8] uppercase mb-3"
-            style={{ fontSize: 'clamp(1.2rem, 3vw, 1.8rem)' }}>
+          <p className="font-oswald text-[9px] tracking-[0.35em] text-[#e3d1b8]/35 uppercase mb-3">Ready to get featured?</p>
+          <h3 className="font-oswald font-bold text-[#e3d1b8] uppercase mb-3" style={{ fontSize: 'clamp(1.2rem, 3vw, 1.8rem)' }}>
             Let's Tell Your Story
           </h3>
           <p className="font-inter text-[13px] text-[#e3d1b8]/50 leading-[1.8] mb-6">
             Email us directly at{' '}
-            <a href="mailto:info@definitionofrnb.com"
-              className="text-[#e3d1b8]/80 hover:text-[#e3d1b8] transition-colors">
+            <a
+              href="mailto:info@definitionofrnb.com"
+              className="text-[#e3d1b8]/80 no-underline"
+              style={{ transition: 'color 200ms cubic-bezier(0.22,1,0.36,1)' }}
+              onMouseEnter={e => { e.currentTarget.style.color = '#e3d1b8' }}
+              onMouseLeave={e => { e.currentTarget.style.color = 'rgba(227,209,184,0.8)' }}
+            >
               info@definitionofrnb.com
             </a>{' '}
             with your artist name, release, and which package you're interested in. We'll take it from there.
           </p>
           <a
             href="mailto:info@definitionofrnb.com?subject=Artist%20of%20the%20Week%20Inquiry"
-            className="inline-block bg-[#e3d1b8] text-[#5c2a35] font-oswald font-bold text-[11px] tracking-[0.2em] uppercase px-8 py-3 hover:bg-white transition-colors no-underline"
+            className="inline-block bg-[#e3d1b8] text-[#5c2a35] font-oswald font-bold text-[11px] tracking-[0.2em] uppercase px-8 py-3 no-underline"
+            style={{ transition: 'background-color 200ms cubic-bezier(0.22,1,0.36,1), transform 150ms cubic-bezier(0.64,0,0.78,0)' }}
+            onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#fff' }}
+            onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#e3d1b8'; e.currentTarget.style.transform = 'scale(1)' }}
+            {...press}
           >
             Email Us Now
           </a>
