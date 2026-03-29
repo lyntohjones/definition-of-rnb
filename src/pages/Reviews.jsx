@@ -22,6 +22,15 @@ const Stars = ({ rating }) => (
   </div>
 )
 
+/* ── Press-state handlers ── */
+const pressHandlers = {
+  onMouseDown:  (e) => { e.currentTarget.style.transform = 'scale(0.97)' },
+  onMouseUp:    (e) => { e.currentTarget.style.transform = 'scale(1)' },
+  onMouseLeave: (e) => { e.currentTarget.style.transform = 'scale(1)' },
+  onTouchStart: (e) => { e.currentTarget.style.transform = 'scale(0.97)' },
+  onTouchEnd:   (e) => { e.currentTarget.style.transform = 'scale(1)' },
+}
+
 /* ── Review data ── */
 const REVIEWS = [
   {
@@ -35,8 +44,7 @@ const REVIEWS = [
     label: 'Independent',
     tags: ['Neo-Soul', 'R&B', 'Gospel'],
     spotifyUrl: 'https://open.spotify.com/search/Aqyila%20Falling%20Into%20Place',
-    excerpt:
-      'Aqyila\'s debut LP is a masterclass in restraint and vulnerability. Across 11 tracks she weaves gospel warmth, Caribbean rhythm, and late-night R&B into a cohesive statement that feels both timeless and urgently present. "Bloom" alone is worth the price of admission.',
+    excerpt: "Aqyila's debut LP is a masterclass in restraint and vulnerability. Across 11 tracks she weaves gospel warmth, Caribbean rhythm, and late-night R&B into a cohesive statement that feels both timeless and urgently present. \"Bloom\" alone is worth the price of admission.",
     highlight: 'Bloom',
     verdict: 'Essential listening. A debut that announces a generational voice.',
   },
@@ -51,10 +59,9 @@ const REVIEWS = [
     label: 'HITCO / Mega',
     tags: ['R&B', 'Pop-Soul'],
     spotifyUrl: 'https://open.spotify.com/search/JayDon%20Lullaby%20Usher',
-    excerpt:
-      'At just 18, JayDon delivers a vocal performance that belies his age. "Lullaby" featuring Usher is a silky, understated ballad that showcases his falsetto range and natural charisma. The Usher co-sign feels earned rather than manufactured.',
+    excerpt: "At just 18, JayDon delivers a vocal performance that belies his age. \"Lullaby\" featuring Usher is a silky, understated ballad that showcases his falsetto range and natural charisma. The Usher co-sign feels earned rather than manufactured.",
     highlight: 'Lullaby (feat. Usher)',
-    verdict: 'A star-making moment from one of R&B\'s most exciting young voices.',
+    verdict: "A star-making moment from one of R&B's most exciting young voices.",
   },
   {
     id: 3,
@@ -67,8 +74,7 @@ const REVIEWS = [
     label: 'Quality Control',
     tags: ['Soul', 'Classic R&B'],
     spotifyUrl: 'https://open.spotify.com/search/EJ%20Jones%20Gas%20Station%20Love',
-    excerpt:
-      '"Gas Station Love" is the kind of song that makes you pull over and turn the volume up. EJ Jones channels Bobby Womack and Otis Redding with a rawness that\'s rare in contemporary R&B. The production is stripped back, letting his voice do all the heavy lifting.',
+    excerpt: '\"Gas Station Love\" is the kind of song that makes you pull over and turn the volume up. EJ Jones channels Bobby Womack and Otis Redding with a rawness that's rare in contemporary R&B. The production is stripped back, letting his voice do all the heavy lifting.',
     highlight: 'Gas Station Love',
     verdict: 'Old soul energy that hits harder than most full albums this year.',
   },
@@ -78,13 +84,12 @@ const REVIEWS = [
     title: 'The One',
     type: 'Single',
     rating: 4,
-    photo: 'https://image-cdn-ak.spotifycdn.com/image/ab67616100005174 0c77047950c697730f5c9d3f',
+    photo: 'https://image-cdn-ak.spotifycdn.com/image/ab6761610000517400c77047950c697730f5c9d3f',
     releaseDate: 'December 2024',
     label: 'Pulse Records',
     tags: ['Southern Soul', 'Funk', 'R&B'],
     spotifyUrl: 'https://open.spotify.com/search/Gabriel%20Jacoby%20The%20One',
-    excerpt:
-      'Gabriel Jacoby\'s smoky Southern falsetto sits perfectly over deep guitar grooves and funky horns on "The One." The South Carolina native sounds like he\'s been making records for decades. Billboard\'s R&B Fresh Pick designation is well deserved.',
+    excerpt: 'Gabriel Jacoby's smoky Southern falsetto sits perfectly over deep guitar grooves and funky horns on \"The One.\" The South Carolina native sounds like he's been making records for decades. Billboard's R&B Fresh Pick designation is well deserved.',
     highlight: 'The One',
     verdict: 'Southern-fried soul that grooves from start to finish.',
   },
@@ -99,8 +104,7 @@ const REVIEWS = [
     label: 'OVO / Republic',
     tags: ['Alternative R&B', 'Lo-Fi Soul'],
     spotifyUrl: 'https://open.spotify.com/search/Pimmie%20BITTERSWEET',
-    excerpt:
-      'The Houston singer and mixing engineer who appeared on Drake and PARTYNEXTDOOR\'s album now steps fully into the spotlight. "BITTERSWEET" is a smoldering collection of late-night ballads that explore modern love with unflinching honesty. Her production ear is as sharp as her vocals.',
+    excerpt: "The Houston singer and mixing engineer who appeared on Drake and PARTYNEXTDOOR's album now steps fully into the spotlight. \"BITTERSWEET\" is a smoldering collection of late-night ballads that explore modern love with unflinching honesty. Her production ear is as sharp as her vocals.",
     highlight: "PIMMIE'S DILEMMA",
     verdict: 'A quietly devastating EP that rewards repeat listening.',
   },
@@ -115,33 +119,42 @@ const REVIEWS = [
     label: 'Independent',
     tags: ['Afrobeats', 'R&B', 'Alte'],
     spotifyUrl: 'https://open.spotify.com/search/Odeal%20The%20Summer%20That%20Saved%20Me',
-    excerpt:
-      'Billboard\'s African Rookie of the Year 2025 delivers a global R&B statement. Odeal\'s British-Nigerian perspective fuses Afrobeats, alte, and classic R&B into something genuinely new. His baritone voice carries a warmth that makes every track feel like a conversation.',
+    excerpt: "Billboard's African Rookie of the Year 2025 delivers a global R&B statement. Odeal's British-Nigerian perspective fuses Afrobeats, alte, and classic R&B into something genuinely new. His baritone voice carries a warmth that makes every track feel like a conversation.",
     highlight: 'Miami (feat. Leon Thomas)',
     verdict: 'A boundary-dissolving project that positions Odeal as a global R&B force.',
   },
 ]
 
-/* ── Rating badge colour ── */
+/* ── Rating badge ── */
 const ratingLabel = (r) => {
-  if (r === 5) return { text: 'Classic', bg: 'bg-[#e3d1b8]', fg: 'text-[#5c2a35]' }
-  if (r === 4) return { text: 'Recommended', bg: 'bg-[#1DB954]/20', fg: 'text-[#1DB954]' }
-  return { text: 'Worth Hearing', bg: 'bg-[#e3d1b8]/10', fg: 'text-[#e3d1b8]/60' }
+  if (r === 5) return { text: 'Classic',       bg: 'bg-[#e3d1b8]',     fg: 'text-[#5c2a35]' }
+  if (r === 4) return { text: 'Recommended',   bg: 'bg-[#1DB954]/20',  fg: 'text-[#1DB954]' }
+  return           { text: 'Worth Hearing',  bg: 'bg-[#e3d1b8]/10',  fg: 'text-[#e3d1b8]/60' }
 }
 
 /* ── Review card ── */
 function ReviewCard({ review }) {
   const badge = ratingLabel(review.rating)
-  return (
-    <article className="border border-[#e3d1b8]/15 bg-[#4a2030] flex flex-col sm:flex-row gap-0 overflow-hidden group hover:border-[#e3d1b8]/30 transition-colors">
 
+  return (
+    <article
+      className="border border-[#e3d1b8]/15 bg-[#4a2030] flex flex-col sm:flex-row gap-0 overflow-hidden"
+      style={{ transition: 'border-color 250ms cubic-bezier(0.22,1,0.36,1), transform 250ms cubic-bezier(0.22,1,0.36,1)' }}
+      onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(227,209,184,0.3)'; e.currentTarget.style.transform = 'translateY(-2px)' }}
+      onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(227,209,184,0.15)'; e.currentTarget.style.transform = 'translateY(0)' }}
+    >
       {/* Cover image */}
       <div className="sm:w-[180px] flex-shrink-0 bg-[#3d1a22] overflow-hidden" style={{ minHeight: '180px' }}>
         <img
           src={review.photo}
           alt={review.artist}
-          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-          style={{ minHeight: '180px' }}
+          className="w-full h-full object-cover object-top"
+          style={{
+            minHeight: '180px',
+            transition: 'transform 500ms cubic-bezier(0.22,1,0.36,1)',
+          }}
+          onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.03)' }}
+          onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)' }}
           onError={(e) => { e.target.style.display = 'none' }}
         />
       </div>
@@ -160,8 +173,10 @@ function ReviewCard({ review }) {
                 {review.type}
               </span>
             </div>
-            <h2 className="font-oswald font-bold text-[#e3d1b8] uppercase leading-tight"
-              style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)' }}>
+            <h2
+              className="font-oswald font-bold text-[#e3d1b8] uppercase leading-tight"
+              style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)' }}
+            >
               {review.artist} — <span className="text-[#e3d1b8]/70">{review.title}</span>
             </h2>
             <p className="font-inter text-[11px] text-[#e3d1b8]/35 mt-1">
@@ -182,7 +197,7 @@ function ReviewCard({ review }) {
           ))}
         </div>
 
-        {/* Review excerpt */}
+        {/* Excerpt */}
         <p className="font-inter text-[12px] md:text-[13px] text-[#e3d1b8]/60 leading-[1.8] mb-4 flex-1">
           {review.excerpt}
         </p>
@@ -198,10 +213,17 @@ function ReviewCard({ review }) {
           href={review.spotifyUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="self-start flex items-center gap-2 bg-[#1DB954]/10 border border-[#1DB954]/25 px-4 py-2 hover:bg-[#1DB954]/20 transition-colors no-underline group/sp"
+          className="self-start flex items-center gap-2 bg-[#1DB954]/10 border border-[#1DB954]/25 px-4 py-2 no-underline"
+          style={{ transition: 'background-color 200ms cubic-bezier(0.22,1,0.36,1), border-color 200ms cubic-bezier(0.22,1,0.36,1), transform 150ms cubic-bezier(0.64,0,0.78,0)' }}
+          onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'rgba(29,185,84,0.2)'; e.currentTarget.style.borderColor = 'rgba(29,185,84,0.4)' }}
+          onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'rgba(29,185,84,0.1)'; e.currentTarget.style.borderColor = 'rgba(29,185,84,0.25)'; e.currentTarget.style.transform = 'scale(1)' }}
+          {...pressHandlers}
         >
-          <IconSpotify />
-          <span className="font-inter text-[11px] text-[#e3d1b8]/70 group-hover/sp:text-[#e3d1b8]/90 transition-colors">
+          <span style={{ color: '#1DB954' }}><IconSpotify /></span>
+          <span className="font-inter text-[11px] text-[#e3d1b8]/70"
+            style={{ transition: 'color 200ms cubic-bezier(0.22,1,0.36,1)' }}
+            onMouseEnter={e => { e.currentTarget.style.color = 'rgba(227,209,184,0.9)' }}
+            onMouseLeave={e => { e.currentTarget.style.color = 'rgba(227,209,184,0.7)' }}>
             Listen: {review.highlight}
           </span>
         </a>
@@ -223,9 +245,7 @@ export default function Reviews() {
         <div className="max-w-screen-xl mx-auto">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-8 h-[1px] bg-[#e3d1b8]/40" />
-            <span className="font-oswald text-[10px] tracking-[0.4em] text-[#e3d1b8]/40 uppercase">
-              New Releases
-            </span>
+            <span className="font-oswald text-[10px] tracking-[0.4em] text-[#e3d1b8]/40 uppercase">New Releases</span>
           </div>
           <h1
             className="font-oswald font-bold text-[#e3d1b8] uppercase leading-tight"
@@ -234,7 +254,7 @@ export default function Reviews() {
             Reviews
           </h1>
           <p className="font-inter text-[13px] text-[#e3d1b8]/45 mt-3 max-w-[520px] leading-relaxed">
-            Honest takes on the latest R&B albums, EPs, and singles. We listen so you know what's worth your time.
+            Honest takes on the latest R&amp;B albums, EPs, and singles. We listen so you know what's worth your time.
           </p>
         </div>
       </header>
