@@ -3,14 +3,12 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import SubmitMusic from '../components/SubmitMusic'
 
-/* ── Spotify icon ── */
 const IconSpotify = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
     <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.42 1.56-.299.421-1.02.599-1.559.3z"/>
   </svg>
 )
 
-/* ── Star rating ── */
 const Stars = ({ rating }) => (
   <div className="flex items-center gap-[3px]">
     {[1, 2, 3, 4, 5].map((n) => (
@@ -22,7 +20,6 @@ const Stars = ({ rating }) => (
   </div>
 )
 
-/* ── Press-state handlers ── */
 const pressHandlers = {
   onMouseDown:  (e) => { e.currentTarget.style.transform = 'scale(0.97)' },
   onMouseUp:    (e) => { e.currentTarget.style.transform = 'scale(1)' },
@@ -31,7 +28,6 @@ const pressHandlers = {
   onTouchEnd:   (e) => { e.currentTarget.style.transform = 'scale(1)' },
 }
 
-/* ── Review data ── */
 const REVIEWS = [
   {
     id: 1,
@@ -74,7 +70,7 @@ const REVIEWS = [
     label: 'Quality Control',
     tags: ['Soul', 'Classic R&B'],
     spotifyUrl: 'https://open.spotify.com/search/EJ%20Jones%20Gas%20Station%20Love',
-    excerpt: '\"Gas Station Love\" is the kind of song that makes you pull over and turn the volume up. EJ Jones channels Bobby Womack and Otis Redding with a rawness that's rare in contemporary R&B. The production is stripped back, letting his voice do all the heavy lifting.',
+    excerpt: "\"Gas Station Love\" is the kind of song that makes you pull over and turn the volume up. EJ Jones channels Bobby Womack and Otis Redding with a rawness that's rare in contemporary R&B. The production is stripped back, letting his voice do all the heavy lifting.",
     highlight: 'Gas Station Love',
     verdict: 'Old soul energy that hits harder than most full albums this year.',
   },
@@ -89,7 +85,7 @@ const REVIEWS = [
     label: 'Pulse Records',
     tags: ['Southern Soul', 'Funk', 'R&B'],
     spotifyUrl: 'https://open.spotify.com/search/Gabriel%20Jacoby%20The%20One',
-    excerpt: 'Gabriel Jacoby's smoky Southern falsetto sits perfectly over deep guitar grooves and funky horns on \"The One.\" The South Carolina native sounds like he's been making records for decades. Billboard's R&B Fresh Pick designation is well deserved.',
+    excerpt: "Gabriel Jacoby's smoky Southern falsetto sits perfectly over deep guitar grooves and funky horns on \"The One.\" The South Carolina native sounds like he's been making records for decades. Billboard's R&B Fresh Pick designation is well deserved.",
     highlight: 'The One',
     verdict: 'Southern-fried soul that grooves from start to finish.',
   },
@@ -125,17 +121,14 @@ const REVIEWS = [
   },
 ]
 
-/* ── Rating badge ── */
 const ratingLabel = (r) => {
-  if (r === 5) return { text: 'Classic',       bg: 'bg-[#e3d1b8]',     fg: 'text-[#5c2a35]' }
-  if (r === 4) return { text: 'Recommended',   bg: 'bg-[#1DB954]/20',  fg: 'text-[#1DB954]' }
-  return           { text: 'Worth Hearing',  bg: 'bg-[#e3d1b8]/10',  fg: 'text-[#e3d1b8]/60' }
+  if (r === 5) return { text: 'Classic',      bg: 'bg-[#e3d1b8]',    fg: 'text-[#5c2a35]' }
+  if (r === 4) return { text: 'Recommended',  bg: 'bg-[#1DB954]/20', fg: 'text-[#1DB954]' }
+  return           { text: 'Worth Hearing', bg: 'bg-[#e3d1b8]/10', fg: 'text-[#e3d1b8]/60' }
 }
 
-/* ── Review card ── */
 function ReviewCard({ review }) {
   const badge = ratingLabel(review.rating)
-
   return (
     <article
       className="border border-[#e3d1b8]/15 bg-[#4a2030] flex flex-col sm:flex-row gap-0 overflow-hidden"
@@ -143,72 +136,41 @@ function ReviewCard({ review }) {
       onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(227,209,184,0.3)'; e.currentTarget.style.transform = 'translateY(-2px)' }}
       onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(227,209,184,0.15)'; e.currentTarget.style.transform = 'translateY(0)' }}
     >
-      {/* Cover image */}
       <div className="sm:w-[180px] flex-shrink-0 bg-[#3d1a22] overflow-hidden" style={{ minHeight: '180px' }}>
         <img
           src={review.photo}
           alt={review.artist}
           className="w-full h-full object-cover object-top"
-          style={{
-            minHeight: '180px',
-            transition: 'transform 500ms cubic-bezier(0.22,1,0.36,1)',
-          }}
+          style={{ minHeight: '180px', transition: 'transform 500ms cubic-bezier(0.22,1,0.36,1)' }}
           onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.03)' }}
           onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)' }}
           onError={(e) => { e.target.style.display = 'none' }}
         />
       </div>
-
-      {/* Content */}
       <div className="flex flex-col flex-1 p-5 sm:p-6">
-
-        {/* Top row */}
         <div className="flex items-start justify-between gap-3 mb-3">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className={`font-oswald text-[9px] tracking-[0.25em] uppercase px-2 py-[3px] ${badge.bg} ${badge.fg}`}>
-                {badge.text}
-              </span>
-              <span className="font-oswald text-[9px] tracking-[0.2em] text-[#e3d1b8]/35 uppercase border border-[#e3d1b8]/15 px-2 py-[3px]">
-                {review.type}
-              </span>
+              <span className={`font-oswald text-[9px] tracking-[0.25em] uppercase px-2 py-[3px] ${badge.bg} ${badge.fg}`}>{badge.text}</span>
+              <span className="font-oswald text-[9px] tracking-[0.2em] text-[#e3d1b8]/35 uppercase border border-[#e3d1b8]/15 px-2 py-[3px]">{review.type}</span>
             </div>
-            <h2
-              className="font-oswald font-bold text-[#e3d1b8] uppercase leading-tight"
-              style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)' }}
-            >
+            <h2 className="font-oswald font-bold text-[#e3d1b8] uppercase leading-tight" style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)' }}>
               {review.artist} — <span className="text-[#e3d1b8]/70">{review.title}</span>
             </h2>
-            <p className="font-inter text-[11px] text-[#e3d1b8]/35 mt-1">
-              {review.releaseDate} · {review.label}
-            </p>
+            <p className="font-inter text-[11px] text-[#e3d1b8]/35 mt-1">{review.releaseDate} · {review.label}</p>
           </div>
-          <div className="flex-shrink-0 pt-1">
-            <Stars rating={review.rating} />
-          </div>
+          <div className="flex-shrink-0 pt-1"><Stars rating={review.rating} /></div>
         </div>
-
-        {/* Tags */}
         <div className="flex flex-wrap gap-1.5 mb-4">
           {review.tags.map((tag) => (
-            <span key={tag} className="font-inter text-[10px] text-[#e3d1b8]/40 border border-[#e3d1b8]/10 px-2 py-[2px]">
-              {tag}
-            </span>
+            <span key={tag} className="font-inter text-[10px] text-[#e3d1b8]/40 border border-[#e3d1b8]/10 px-2 py-[2px]">{tag}</span>
           ))}
         </div>
-
-        {/* Excerpt */}
-        <p className="font-inter text-[12px] md:text-[13px] text-[#e3d1b8]/60 leading-[1.8] mb-4 flex-1">
-          {review.excerpt}
-        </p>
-
-        {/* Verdict */}
+        <p className="font-inter text-[12px] md:text-[13px] text-[#e3d1b8]/60 leading-[1.8] mb-4 flex-1">{review.excerpt}</p>
         <div className="border-l-2 border-[#e3d1b8]/25 pl-3 mb-4">
           <p className="font-oswald text-[9px] tracking-[0.3em] text-[#e3d1b8]/35 uppercase mb-1">Verdict</p>
           <p className="font-inter text-[12px] text-[#e3d1b8]/75 italic leading-relaxed">{review.verdict}</p>
         </div>
-
-        {/* Spotify CTA */}
         <a
           href={review.spotifyUrl}
           target="_blank"
@@ -220,52 +182,33 @@ function ReviewCard({ review }) {
           {...pressHandlers}
         >
           <span style={{ color: '#1DB954' }}><IconSpotify /></span>
-          <span className="font-inter text-[11px] text-[#e3d1b8]/70"
-            style={{ transition: 'color 200ms cubic-bezier(0.22,1,0.36,1)' }}
-            onMouseEnter={e => { e.currentTarget.style.color = 'rgba(227,209,184,0.9)' }}
-            onMouseLeave={e => { e.currentTarget.style.color = 'rgba(227,209,184,0.7)' }}>
-            Listen: {review.highlight}
-          </span>
+          <span className="font-inter text-[11px] text-[#e3d1b8]/70">Listen: {review.highlight}</span>
         </a>
       </div>
     </article>
   )
 }
 
-/* ── Page ── */
 export default function Reviews() {
   const [showSubmit, setShowSubmit] = useState(false)
-
   return (
     <div className="min-h-screen bg-[#5c2a35]">
       <Nav onSubmitClick={() => setShowSubmit(true)} />
-
-      {/* Page header */}
       <header className="w-full bg-[#3d1a22] border-b border-[#e3d1b8]/10 py-10 px-5">
         <div className="max-w-screen-xl mx-auto">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-8 h-[1px] bg-[#e3d1b8]/40" />
             <span className="font-oswald text-[10px] tracking-[0.4em] text-[#e3d1b8]/40 uppercase">New Releases</span>
           </div>
-          <h1
-            className="font-oswald font-bold text-[#e3d1b8] uppercase leading-tight"
-            style={{ fontSize: 'clamp(2rem, 6vw, 4rem)' }}
-          >
-            Reviews
-          </h1>
+          <h1 className="font-oswald font-bold text-[#e3d1b8] uppercase leading-tight" style={{ fontSize: 'clamp(2rem, 6vw, 4rem)' }}>Reviews</h1>
           <p className="font-inter text-[13px] text-[#e3d1b8]/45 mt-3 max-w-[520px] leading-relaxed">
             Honest takes on the latest R&amp;B albums, EPs, and singles. We listen so you know what's worth your time.
           </p>
         </div>
       </header>
-
-      {/* Reviews list */}
       <main className="max-w-screen-xl mx-auto px-4 sm:px-6 py-10 space-y-6">
-        {REVIEWS.map((review) => (
-          <ReviewCard key={review.id} review={review} />
-        ))}
+        {REVIEWS.map((review) => <ReviewCard key={review.id} review={review} />)}
       </main>
-
       <Footer onSubmitClick={() => setShowSubmit(true)} />
       {showSubmit && <SubmitMusic onClose={() => setShowSubmit(false)} />}
     </div>
