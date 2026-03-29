@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'h
 
 /* ── Spotify icon ── */
 const IconSpotify = () => (
@@ -20,6 +20,7 @@ function spotifySearchUrl(artistName, songTitle) {
 }
 
 export default function ArtistCard({ name, label, bio, photo, songs = [] }) {
+    const [imgError, setImgError] = useState(false)
   return (
     <article
       className="border-2 border-[#e3d1b8] bg-[#4a2030] flex flex-col group"
@@ -37,12 +38,12 @@ export default function ArtistCard({ name, label, bio, photo, songs = [] }) {
     >
       {/* ── Artist photo ── */}
       <div className="w-full overflow-hidden bg-[#3d1a22] relative" style={{ aspectRatio: '4/3' }}>
-        {photo ? (
+        {photo && !imgError ? (
           <img
             src={photo}
             alt={name}
             className="w-full h-full object-cover object-top"
-            style={{ transition: 'transform 600ms cubic-bezier(0.22,1,0.36,1)' }}
+            onError={() => setImgError(true)}            style={{ transition: 'transform 600ms cubic-bezier(0.22,1,0.36,1)' }}
             onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.04)' }}
             onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)' }}
           />
