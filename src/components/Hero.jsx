@@ -16,78 +16,63 @@ const IconPlay = () => (
 
 /* ── Build Spotify search URL ── */
 function spotifyUrl(artistName, songTitle) {
-  if (songTitle) {
-    return `https://open.spotify.com/search/${encodeURIComponent(`${artistName} ${songTitle}`)}`
-  }
+  if (songTitle) return `https://open.spotify.com/search/${encodeURIComponent(`${artistName} ${songTitle}`)}`
   return `https://open.spotify.com/search/${encodeURIComponent(artistName)}`
+}
+
+/* ── Press-state helpers (scale 0.97 on active, ease-in exit) ── */
+const pressHandlers = {
+  onMouseDown:  (e) => { e.currentTarget.style.transform = 'scale(0.97)' },
+  onMouseUp:    (e) => { e.currentTarget.style.transform = 'scale(1)' },
+  onMouseLeave: (e) => { e.currentTarget.style.transform = 'scale(1)' },
+  onTouchStart: (e) => { e.currentTarget.style.transform = 'scale(0.97)' },
+  onTouchEnd:   (e) => { e.currentTarget.style.transform = 'scale(1)' },
 }
 
 /* ── Animation keyframes injected once ── */
 const STYLES = `
-  @keyframes heroImgIn {
-    0%   { opacity: 0; transform: scale(1.06) translateX(18px); }
-    100% { opacity: 1; transform: scale(1)    translateX(0);    }
-  }
-  @keyframes heroImgInMobile {
-    0%   { opacity: 0; transform: scale(1.05) translateY(-10px); }
-    100% { opacity: 1; transform: scale(1)    translateY(0);     }
-  }
-  @keyframes heroLabelIn {
-    0%   { opacity: 0; transform: translateY(10px); }
-    100% { opacity: 1; transform: translateY(0);    }
-  }
-  @keyframes heroTitleIn {
-    0%   { opacity: 0; transform: translateY(22px); }
-    100% { opacity: 1; transform: translateY(0);    }
-  }
-  @keyframes heroBioIn {
-    0%   { opacity: 0; transform: translateY(16px); }
-    100% { opacity: 1; transform: translateY(0);    }
-  }
-  @keyframes heroContentIn {
-    0%   { opacity: 0; transform: translateY(12px); }
-    100% { opacity: 1; transform: translateY(0);    }
-  }
-  @keyframes heroBtnIn {
-    0%   { opacity: 0; transform: translateY(10px); }
-    100% { opacity: 1; transform: translateY(0);    }
-  }
-  .hero-img-desktop {
-    animation: heroImgIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-delay: 0.1s;
-  }
-  .hero-img-mobile {
-    animation: heroImgInMobile 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-delay: 0.05s;
-  }
-  .hero-label {
-    animation: heroLabelIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-delay: 0.25s;
-  }
-  .hero-title {
-    animation: heroTitleIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-delay: 0.38s;
-  }
-  .hero-bio {
-    animation: heroBioIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-delay: 0.52s;
-  }
-  .hero-feature {
-    animation: heroContentIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-delay: 0.62s;
-  }
-  .hero-btns {
-    animation: heroBtnIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-delay: 0.74s;
-  }
+@keyframes heroImgIn {
+  0%   { opacity: 0; transform: scale(1.06) translateX(18px); }
+  100% { opacity: 1; transform: scale(1)    translateX(0); }
+}
+@keyframes heroImgInMobile {
+  0%   { opacity: 0; transform: scale(1.05) translateY(-10px); }
+  100% { opacity: 1; transform: scale(1)    translateY(0); }
+}
+@keyframes heroLabelIn {
+  0%   { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroTitleIn {
+  0%   { opacity: 0; transform: translateY(22px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroBioIn {
+  0%   { opacity: 0; transform: translateY(16px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroContentIn {
+  0%   { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroBtnIn {
+  0%   { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.hero-img-desktop { animation: heroImgIn       0.9s cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: 0.1s; }
+.hero-img-mobile  { animation: heroImgInMobile  0.8s cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: 0.05s; }
+.hero-label       { animation: heroLabelIn      0.6s cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: 0.25s; }
+.hero-title       { animation: heroTitleIn      0.7s cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: 0.38s; }
+.hero-bio         { animation: heroBioIn        0.6s cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: 0.52s; }
+.hero-feature     { animation: heroContentIn    0.6s cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: 0.62s; }
+.hero-btns        { animation: heroBtnIn        0.6s cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: 0.74s; }
 `
 
 let stylesInjected = false
 
 export default function Hero() {
   const [featured, setFeatured] = useState(null)
-  const [ready, setReady] = useState(false)
-  const styleRef = useRef(null)
+  const [ready,    setReady]    = useState(false)
 
   /* Inject animation styles once */
   useEffect(() => {
@@ -106,7 +91,6 @@ export default function Hero() {
         const aotw = data.find((a) => a.label === 'Artist of the Week')
         if (aotw) {
           setFeatured(aotw)
-          /* Small tick so the DOM mounts before animations fire */
           requestAnimationFrame(() => setReady(true))
         }
       })
@@ -119,8 +103,8 @@ export default function Hero() {
     name,
     bio,
     photo,
-    photoFocus = '50% 20%',   /* default focus point if not set in JSON */
-    songs = [],
+    photoFocus = '50% 20%',
+    songs      = [],
     feature,
     instagram,
   } = featured
@@ -128,10 +112,7 @@ export default function Hero() {
   return (
     <section className="w-full bg-[#5c2a35] overflow-hidden">
 
-      {/* ─────────────────────────────────────────────────────────────
-          MOBILE LAYOUT  (< md)
-          Artist image displayed full-width above the text, animated
-      ───────────────────────────────────────────────────────────── */}
+      {/* ── Mobile image ── */}
       {photo && (
         <div className="block md:hidden w-full relative" style={{ aspectRatio: '4/3' }}>
           <img
@@ -140,7 +121,6 @@ export default function Hero() {
             className={`w-full h-full object-cover${ready ? ' hero-img-mobile' : ' opacity-0'}`}
             style={{ objectPosition: photoFocus }}
           />
-          {/* Bottom fade */}
           <div
             className="absolute inset-x-0 bottom-0 h-28 pointer-events-none"
             style={{ background: 'linear-gradient(to bottom, transparent, #5c2a35)' }}
@@ -148,39 +128,27 @@ export default function Hero() {
         </div>
       )}
 
-      {/* ─────────────────────────────────────────────────────────────
-          DESKTOP LAYOUT  (≥ md)
-          Artist image pinned right, animated slide-in from right
-      ───────────────────────────────────────────────────────────── */}
+      {/* ── Desktop image ── */}
       {photo && (
         <div
           className={`hidden md:block absolute right-0 top-0 bottom-0 w-[45%] pointer-events-none overflow-hidden${ready ? ' hero-img-desktop' : ' opacity-0'}`}
           aria-hidden="true"
           style={{
-            WebkitMaskImage:
-              'linear-gradient(to right, transparent 0%, black 20%), linear-gradient(to top, transparent 0%, black 20%)',
-            maskImage:
-              'linear-gradient(to right, transparent 0%, black 20%), linear-gradient(to top, transparent 0%, black 20%)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 20%), linear-gradient(to top, transparent 0%, black 20%)',
+            maskImage:        'linear-gradient(to right, transparent 0%, black 20%), linear-gradient(to top, transparent 0%, black 20%)',
             WebkitMaskComposite: 'destination-in',
-            maskComposite: 'intersect',
+            maskComposite:       'intersect',
           }}
         >
-          <img
-            src={photo}
-            alt=""
-            className="w-full h-full object-cover"
-            style={{ objectPosition: photoFocus }}
-          />
+          <img src={photo} alt="" className="w-full h-full object-cover" style={{ objectPosition: photoFocus }} />
         </div>
       )}
 
-      {/* ─────────────────────────────────────────────────────────────
-          CONTENT  (shared across breakpoints, staggered animation)
-      ───────────────────────────────────────────────────────────── */}
+      {/* ── Content ── */}
       <div className="relative z-10 max-w-screen-xl mx-auto px-5 sm:px-6 py-8 md:py-20">
         <div className="max-w-[680px]">
 
-          {/* Label line */}
+          {/* Label */}
           <div className={`flex items-center gap-3 mb-4 md:mb-5${ready ? ' hero-label' : ' opacity-0'}`}>
             <div className="w-8 h-[1px] bg-[#e3d1b8]/40" />
             <span className="font-oswald text-[10px] tracking-[0.4em] text-[#e3d1b8]/50 uppercase">
@@ -196,52 +164,37 @@ export default function Hero() {
             {name}
           </h1>
 
-          {/* Short bio */}
+          {/* Bio */}
           <p className={`font-inter text-[13px] md:text-[14px] text-[#e3d1b8]/65 leading-[1.8] mb-5 md:mb-6 max-w-[580px]${ready ? ' hero-bio' : ' opacity-0'}`}>
             {bio}
           </p>
 
-          {/* ── Feature writeup ── */}
+          {/* Feature writeup */}
           {feature && (
             <div className={`mb-7 md:mb-8${ready ? ' hero-feature' : ' opacity-0'}`}>
 
-              {/* New release header */}
               {feature.album && (
                 <div className="border-l-2 border-[#e3d1b8]/25 pl-4 mb-5">
-                  <p className="font-oswald text-[9px] tracking-[0.35em] text-[#e3d1b8]/40 uppercase mb-1">
-                    Latest Release
-                  </p>
-                  <p
-                    className="font-oswald text-[#e3d1b8]/90 uppercase tracking-wide"
-                    style={{ fontSize: 'clamp(1rem, 2vw, 1.4rem)' }}
-                  >
+                  <p className="font-oswald text-[9px] tracking-[0.35em] text-[#e3d1b8]/40 uppercase mb-1">Latest Release</p>
+                  <p className="font-oswald text-[#e3d1b8]/90 uppercase tracking-wide" style={{ fontSize: 'clamp(1rem, 2vw, 1.4rem)' }}>
                     {feature.album}
                   </p>
                   {feature.releaseDate && (
-                    <p className="font-inter text-[11px] text-[#e3d1b8]/40 mt-1">
-                      {feature.releaseDate}
-                    </p>
+                    <p className="font-inter text-[11px] text-[#e3d1b8]/40 mt-1">{feature.releaseDate}</p>
                   )}
                 </div>
               )}
 
-              {/* Feature paragraphs */}
-              {feature.paragraphs &&
-                feature.paragraphs.map((p, i) => (
-                  <p
-                    key={i}
-                    className="font-inter text-[12px] md:text-[13px] text-[#e3d1b8]/55 leading-[1.8] mb-4 max-w-[560px]"
-                  >
-                    {p}
-                  </p>
-                ))}
+              {feature.paragraphs && feature.paragraphs.map((p, i) => (
+                <p key={i} className="font-inter text-[12px] md:text-[13px] text-[#e3d1b8]/55 leading-[1.8] mb-4 max-w-[560px]">
+                  {p}
+                </p>
+              ))}
 
               {/* Key tracks */}
               {feature.highlights && feature.highlights.length > 0 && (
                 <div className="mt-5">
-                  <p className="font-oswald text-[9px] tracking-[0.3em] text-[#e3d1b8]/35 uppercase mb-3">
-                    Key Tracks
-                  </p>
+                  <p className="font-oswald text-[9px] tracking-[0.3em] text-[#e3d1b8]/35 uppercase mb-3">Key Tracks</p>
                   <div className="flex flex-wrap gap-2">
                     {feature.highlights.map((track, i) => (
                       <a
@@ -249,12 +202,17 @@ export default function Hero() {
                         href={spotifyUrl(name, track)}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 bg-[#1DB954]/10 border border-[#1DB954]/20 px-3 py-[6px] hover:bg-[#1DB954]/20 transition-colors no-underline group"
+                        className="flex items-center gap-2 bg-[#1DB954]/10 border border-[#1DB954]/20 px-3 py-[6px] no-underline group"
+                        style={{ transition: 'background-color 200ms cubic-bezier(0.22,1,0.36,1), border-color 200ms cubic-bezier(0.22,1,0.36,1), transform 150ms cubic-bezier(0.64,0,0.78,0)' }}
+                        {...pressHandlers}
+                        onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'rgba(29,185,84,0.2)'; e.currentTarget.style.borderColor = 'rgba(29,185,84,0.4)' }}
+                        onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'rgba(29,185,84,0.1)'; e.currentTarget.style.borderColor = 'rgba(29,185,84,0.2)'; e.currentTarget.style.transform = 'scale(1)' }}
                       >
-                        <span className="w-5 h-5 rounded-full bg-[#1DB954]/20 flex items-center justify-center text-[#1DB954] group-hover:bg-[#1DB954]/40 transition-colors">
+                        <span className="w-5 h-5 rounded-full bg-[#1DB954]/20 flex items-center justify-center text-[#1DB954]">
                           <IconPlay />
                         </span>
-                        <span className="font-inter text-[11px] text-[#e3d1b8]/70 group-hover:text-[#e3d1b8]/90 transition-colors">
+                        <span className="font-inter text-[11px] text-[#e3d1b8]/70 group-hover:text-[#e3d1b8]/90"
+                          style={{ transition: 'color 200ms cubic-bezier(0.22,1,0.36,1)' }}>
                           {track}
                         </span>
                       </a>
@@ -270,6 +228,9 @@ export default function Hero() {
                     <span
                       key={i}
                       className="font-oswald text-[9px] tracking-[0.2em] text-[#e3d1b8]/50 uppercase border border-[#e3d1b8]/15 px-3 py-[5px]"
+                      style={{ transition: 'border-color 200ms cubic-bezier(0.22,1,0.36,1), color 200ms cubic-bezier(0.22,1,0.36,1)' }}
+                      onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(227,209,184,0.35)'; e.currentTarget.style.color = 'rgba(227,209,184,0.75)' }}
+                      onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(227,209,184,0.15)'; e.currentTarget.style.color = 'rgba(227,209,184,0.5)' }}
                     >
                       {badge}
                     </span>
@@ -282,9 +243,7 @@ export default function Hero() {
           {/* Fallback: songs as pills */}
           {songs.length > 0 && !feature && (
             <div className={`mb-8${ready ? ' hero-feature' : ' opacity-0'}`}>
-              <p className="font-oswald text-[9px] tracking-[0.3em] text-[#e3d1b8]/35 uppercase mb-3">
-                Top Tracks
-              </p>
+              <p className="font-oswald text-[9px] tracking-[0.3em] text-[#e3d1b8]/35 uppercase mb-3">Top Tracks</p>
               <div className="flex flex-wrap gap-2">
                 {songs.slice(0, 3).map((song, i) => {
                   const title = typeof song === 'string' ? song : song.title
@@ -294,12 +253,17 @@ export default function Hero() {
                       href={spotifyUrl(name, title)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 bg-[#1DB954]/10 border border-[#1DB954]/20 px-3 py-[6px] hover:bg-[#1DB954]/20 transition-colors no-underline group"
+                      className="flex items-center gap-2 bg-[#1DB954]/10 border border-[#1DB954]/20 px-3 py-[6px] no-underline group"
+                      style={{ transition: 'background-color 200ms cubic-bezier(0.22,1,0.36,1), transform 150ms cubic-bezier(0.64,0,0.78,0)' }}
+                      {...pressHandlers}
+                      onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'rgba(29,185,84,0.2)' }}
+                      onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'rgba(29,185,84,0.1)'; e.currentTarget.style.transform = 'scale(1)' }}
                     >
                       <span className="w-5 h-5 rounded-full bg-[#1DB954]/20 flex items-center justify-center text-[#1DB954]">
                         <IconPlay />
                       </span>
-                      <span className="font-inter text-[11px] text-[#e3d1b8]/70 group-hover:text-[#e3d1b8]/90">
+                      <span className="font-inter text-[11px] text-[#e3d1b8]/70 group-hover:text-[#e3d1b8]/90"
+                        style={{ transition: 'color 200ms cubic-bezier(0.22,1,0.36,1)' }}>
                         {title}
                       </span>
                     </a>
@@ -311,25 +275,37 @@ export default function Hero() {
 
           {/* ── CTA buttons ── */}
           <div className={`flex flex-wrap gap-3 pb-8 md:pb-0${ready ? ' hero-btns' : ' opacity-0'}`}>
+
+            {/* Spotify */}
             <a
               href={spotifyUrl(name)}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-[#1DB954] text-white font-oswald font-bold text-xs tracking-[0.2em] uppercase px-8 py-3 hover:bg-[#1ed760] transition-colors no-underline"
+              className="flex items-center gap-2 bg-[#1DB954] text-white font-oswald font-bold text-xs tracking-[0.2em] uppercase px-8 py-3 no-underline"
+              style={{ transition: 'background-color 200ms cubic-bezier(0.22,1,0.36,1), transform 150ms cubic-bezier(0.64,0,0.78,0)' }}
+              onMouseEnter={e => e.currentTarget.style.backgroundColor = '#1ed760'}
+              onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#1DB954'; e.currentTarget.style.transform = 'scale(1)' }}
+              {...pressHandlers}
             >
               <IconSpotify />
               LISTEN ON SPOTIFY
             </a>
+
+            {/* Instagram */}
             <a
               href={`https://www.instagram.com/${instagram || name.toLowerCase().replace(/\s+/g, '')}/`}
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-[#e3d1b8]/60 text-[#e3d1b8] font-oswald font-bold text-xs tracking-[0.2em] uppercase px-8 py-3 hover:bg-[#e3d1b8]/10 transition-colors no-underline"
+              className="border border-[#e3d1b8]/60 text-[#e3d1b8] font-oswald font-bold text-xs tracking-[0.2em] uppercase px-8 py-3 no-underline"
+              style={{ transition: 'background-color 200ms cubic-bezier(0.22,1,0.36,1), border-color 200ms cubic-bezier(0.22,1,0.36,1), transform 150ms cubic-bezier(0.64,0,0.78,0)' }}
+              onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'rgba(227,209,184,0.1)'; e.currentTarget.style.borderColor = 'rgba(227,209,184,0.9)' }}
+              onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.borderColor = 'rgba(227,209,184,0.6)'; e.currentTarget.style.transform = 'scale(1)' }}
+              {...pressHandlers}
             >
               FOLLOW ON IG
             </a>
-          </div>
 
+          </div>
         </div>
       </div>
     </section>
