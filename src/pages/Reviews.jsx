@@ -16,7 +16,7 @@ const Stars = ({ rating }) => (
         className={`w-3 h-3 ${n <= rating ? 'text-[#e3d1b8]' : 'text-[#e3d1b8]/20'}`}>
         <path d="M6 0l1.545 3.09L11 3.635l-2.5 2.455.59 3.455L6 7.91l-3.09 1.635L3.5 6.09 1 3.635l3.455-.545z"/>
       </svg>
-    ))}
+    ))}hh
   </div>
 )
 
@@ -80,7 +80,7 @@ const REVIEWS = [
     title: 'The One',
     type: 'Single',
     rating: 4,
-    photo: 'https://image-cdn-ak.spotifycdn.com/image/ab6761610000517400c77047950c697730f5c9d3f',
+    photo: 'https://image-cdn-ak.spotifycdn.com/image/ab676161000051740c77047950c697730f5c9d3f',
     releaseDate: 'December 2024',
     label: 'Pulse Records',
     tags: ['Southern Soul', 'Funk', 'R&B'],
