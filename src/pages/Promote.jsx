@@ -271,9 +271,9 @@ export default function Promote() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-[860px]">
           {[
             { q: 'Who is this for?', a: 'Independent R&B artists, singer-songwriters, producers, and labels looking to build awareness with a targeted R&B audience. We do not feature genres outside of R&B, Soul, Neo-Soul, and related styles.' },
-            { q: 'How do I book a feature?', a: "Click "Get Featured" on any package above. We'll respond within 48 hours to confirm your slot, collect your assets (photo, bio, links), and schedule your feature week." },
-            { q: 'What assets do I need to provide?', a: 'A high-resolution artist photo (minimum 1200px wide), a short bio (2–4 sentences), your Spotify and Instagram links, and the title of the release you want featured.' },
-            { q: 'Is the review guaranteed to be positive?', a: "We write honest editorial. We only accept artists we genuinely believe in — if we don't think your music is ready, we'll tell you and suggest resubmitting when the time is right." },
+            { q: 'How do I book a feature?', a: `Click "Get Featured" on any package above. We will respond within 48 hours to confirm your slot, collect your assets (photo, bio, links), and schedule your feature week.` },
+            { q: 'What assets do I need to provide?', a: 'A high-resolution artist photo (minimum 1200px wide), a short bio (2-4 sentences), your Spotify and Instagram links, and the title of the release you want featured.' },
+            { q: 'Is the review guaranteed to be positive?', a: 'We write honest editorial. We only accept artists we genuinely believe in — if we do not think your music is ready, we will tell you and suggest resubmitting when the time is right.' },
             { q: 'How far in advance should I book?', a: 'We recommend booking at least 2 weeks before your desired feature date, especially around album or single release windows. Slots fill quickly.' },
             { q: 'Can I submit without paying?', a: 'Yes. We also consider organic submissions through the Submit Music form. Paid features guarantee placement and editorial coverage; organic submissions are reviewed at our discretion.' },
           ].map((faq) => (
@@ -303,7 +303,7 @@ export default function Promote() {
             >
               info@definitionofrnb.com
             </a>{' '}
-            with your artist name, release, and which package you're interested in. We'll take it from there.
+            with your artist name, release, and which package you are interested in. We will take it from there.
           </p>
           <a
             href="mailto:info@definitionofrnb.com?subject=Artist%20of%20the%20Week%20Inquiry"
