@@ -1,4 +1,4 @@
-import React, { useState } from 'react'h
+import React, { useState } from 'react'
 
 /* ── Spotify icon ── */
 const IconSpotify = () => (
