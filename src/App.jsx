@@ -8,12 +8,14 @@ import BlogGrid    from './components/BlogGrid'
 import Footer      from './components/Footer'
 import SubmitMusic from './components/SubmitMusic'
 import SEO         from './components/SEO'
-import Reviews     from './pages/Reviews'
-import Promote     from './pages/Promote'
-import BlogPost    from './pages/BlogPost'
-import About      from './pages/About'
+import Reviews       from './pages/Reviews'
+import Promote       from './pages/Promote'
+import BlogPost      from './pages/BlogPost'
+import About         from './pages/About'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import TermsOfService from './pages/TermsOfService'
 
-/* ── Home page JSON-LD ── */
+/* ââ Home page JSON-LD ââ */
 const HOME_JSON_LD = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -70,7 +72,7 @@ const HOME_JSON_LD = {
   ],
 }
 
-/* ── Home page ── */
+/* ââ Home page ââ */
 function Home() {
   const [showSubmit, setShowSubmit] = useState(false)
   return (
@@ -100,6 +102,8 @@ export default function App() {
       <Route path="/promote"                                     element={<Promote />} />
       <Route path="/blog/welcome-to-the-new-definition-of-rnb"  element={<BlogPost />} />
       <Route path="/about"                                       element={<About />} />
+      <Route path="/privacy"                                     element={<PrivacyPolicy />} />
+      <Route path="/terms"                                       element={<TermsOfService />} />
       <Route path="*"                                            element={<Home />} />
     </Routes>
   )
