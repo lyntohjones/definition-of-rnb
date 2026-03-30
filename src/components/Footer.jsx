@@ -1,11 +1,11 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-/* ── Footer link config ──────────────────────────────────────────
+/* ââ Footer link config ââââââââââââââââââââââââââââââââââââââââââ
    route: internal path (uses navigate)
    href:  external URL (opens in new tab)
    action: special handler key
-────────────────────────────────────────────────────────────────── */
+ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ */
 const LINK_CONFIG = {
   Explore: [
     { label: 'Artists',      action: 'artists' },
@@ -22,7 +22,8 @@ const LINK_CONFIG = {
     { label: 'About',          route: '/about' },
     { label: 'Submit Music',   action: 'submit' },
     { label: 'Advertise',      route: '/promote' },
-    { label: 'Privacy Policy', route: '/' },
+    { label: 'Privacy Policy', route: '/privacy' },
+    { label: 'Terms of Service', route: '/terms' },
     { label: 'Contact',        href: 'mailto:info@definitionofrnb.com' },
   ],
 }
@@ -64,7 +65,7 @@ export default function Footer({ onSubmitClick }) {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
 
-          {/* ── Brand block ── */}
+          {/* ââ Brand block ââ */}
           <div className="col-span-2 md:col-span-1">
             <img
               src="/logo.png"
@@ -85,7 +86,7 @@ export default function Footer({ onSubmitClick }) {
             </p>
           </div>
 
-          {/* ── Link columns ── */}
+          {/* ââ Link columns ââ */}
           {Object.entries(LINK_CONFIG).map(([heading, links]) => (
             <div key={heading}>
               <h4 className="font-oswald text-[10px] tracking-[0.25em] text-[#e3d1b8]/45 uppercase mb-4 border-b border-[#e3d1b8]/10 pb-2">
@@ -107,10 +108,10 @@ export default function Footer({ onSubmitClick }) {
           ))}
         </div>
 
-        {/* ── Bottom bar ── */}
+        {/* ââ Bottom bar ââ */}
         <div className="border-t border-[#e3d1b8]/10 pt-5 flex flex-col sm:flex-row justify-between gap-2">
           <p className="font-inter text-[9px] tracking-[0.2em] text-[#e3d1b8]/22 uppercase">
-            &copy; 2011–2026 The Definition of R&amp;B. All Rights Reserved. A Division of the Definition of Music Group.
+            &copy; 2011â2026 The Definition of R&amp;B. All Rights Reserved. A Division of the Definition of Music Group.
           </p>
           <p className="font-inter text-[9px] tracking-[0.2em] text-[#e3d1b8]/15 uppercase">
             Built for the culture.
