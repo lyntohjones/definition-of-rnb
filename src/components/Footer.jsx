@@ -24,7 +24,8 @@ const LINK_CONFIG = {
     { label: 'Advertise',      route: '/promote' },
     { label: 'Privacy Policy', route: '/privacy' },
     { label: 'Terms of Service', route: '/terms' },
-    { label: 'Contact',        href: 'mailto:info@definitionofrnb.com' },
+    { label: 'DMCA',           route: '/dmca' },
+    { label: 'Contact',        route: '/contact' },
   ],
 }
 

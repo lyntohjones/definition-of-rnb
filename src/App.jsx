@@ -14,6 +14,8 @@ import BlogPost      from './pages/BlogPost'
 import About         from './pages/About'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
+import Contact        from './pages/Contact'
+import DMCA          from './pages/DMCA'
 
 /* ââ Home page JSON-LD ââ */
 const HOME_JSON_LD = {
@@ -104,6 +106,8 @@ export default function App() {
       <Route path="/about"                                       element={<About />} />
       <Route path="/privacy"                                     element={<PrivacyPolicy />} />
       <Route path="/terms"                                       element={<TermsOfService />} />
+      <Route path="/contact"                                     element={<Contact />} />
+      <Route path="/dmca"                                        element={<DMCA />} />
       <Route path="*"                                            element={<Home />} />
     </Routes>
   )
