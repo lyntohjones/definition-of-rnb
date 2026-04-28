@@ -8,8 +8,8 @@ import SEO from '../components/SEO'
 const TERMS_JSON_LD = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  '@id': 'https://definitionofrnb.com/terms-of-service',
-  url: 'https://definitionofrnb.com/terms-of-service',
+  '@id': 'https://definitionofrnb.com/terms',
+  url: 'https://definitionofrnb.com/terms',
   name: 'Terms of Service – The Definition of R&B',
   description: 'Terms of Service for The Definition of R&B. Read the rules and guidelines governing use of our music review website.',
   isPartOf: { '@id': 'https://definitionofrnb.com/#website' },
@@ -17,7 +17,7 @@ const TERMS_JSON_LD = {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://definitionofrnb.com/' },
-      { '@type': 'ListItem', position: 2, name: 'Terms of Service', item: 'https://definitionofrnb.com/terms-of-service' },
+      { '@type': 'ListItem', position: 2, name: 'Terms of Service', item: 'https://definitionofrnb.com/terms' },
     ],
   },
 }
@@ -69,7 +69,7 @@ const SECTIONS = [
   },
   {
     title: '12. Contact Us',
-    body: 'If you have any questions or concerns about these Terms of Service, please reach out to us:\n\nThe Definition of R&B\nEmail: definitionofrnb@gmail.com\nWebsite: https://definitionofrnb.com',
+    body: 'If you have any questions or concerns about these Terms of Service, please reach out to us:\n\nThe Definition of R&B\nEmail: info@definitionofrnb.com\nWebsite: https://definitionofrnb.com',
   },
 ]
 
@@ -82,7 +82,7 @@ export default function TermsOfService() {
       <SEO
         title="Terms of Service – The Definition of R&B"
         description="Terms of Service for The Definition of R&B. Read the rules and guidelines governing use of our music review website."
-        canonical="https://definitionofrnb.com/terms-of-service"
+        canonical="https://definitionofrnb.com/terms"
         jsonLd={TERMS_JSON_LD}
       />
       <Nav onSubmitClick={() => setShowSubmit(true)} />
