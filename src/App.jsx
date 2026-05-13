@@ -15,7 +15,11 @@ import About         from './pages/About'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
 import Contact        from './pages/Contact'
-import DMCA          from './pages/DMCA'
+import DMCA        from './pages/DMCA'
+import BlogBestAlbums2025      from './pages/BlogBestAlbums2025'
+import BlogAfrobeatsRnb        from './pages/BlogAfrobeatsRnb'
+import BlogFalsettoRenaissance from './pages/BlogFalsettoRenaissance'
+import BlogArtists2026         from './pages/BlogArtists2026'
 
 /* ââ Home page JSON-LD ââ */
 const HOME_JSON_LD = {
@@ -109,6 +113,10 @@ export default function App() {
       <Route path="/contact"                                     element={<Contact />} />
       <Route path="/dmca"                                        element={<DMCA />} />
       <Route path="*"                                            element={<Home />} />
-    </Routes>
+              <Route path="/blog/best-rnb-albums-2025"                  element={<BlogBestAlbums2025 />} />
+          <Route path="/blog/afrobeats-rnb-transatlantic-love-story" element={<BlogAfrobeatsRnb />} />
+          <Route path="/blog/falsetto-renaissance-rnb"               element={<BlogFalsettoRenaissance />} />
+          <Route path="/blog/rnb-artists-to-watch-2026"              element={<BlogArtists2026 />} />
+        </Routes>
   )
 }
