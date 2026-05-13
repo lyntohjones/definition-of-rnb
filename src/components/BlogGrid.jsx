@@ -3,16 +3,52 @@ import { useNavigate } from 'react-router-dom'
 import ArtistCard from './ArtistCard'
 import SidebarAd from './SidebarAd'
 
-/* ── Arrow icon ── */
+/* ââ Arrow icon ââ */
 const IconArrow = () => (
   <svg viewBox="0 0 16 16" fill="none" className="w-3.5 h-3.5">
     <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 )
 
-/* ── Fallback data ── */
+/* ââ Fallback data ââ */
 const FALLBACK = [
-  { id: 1, label: 'Rising Artist', name: 'Loading...', bio: 'Discovering new artists...', photo: null, songs: [{ title: '—' }, { title: '—' }, { title: '—' }] },
+  { id: 1, label: 'Rising Artist', name: 'Loading...', bio: 'Discovering new artists...', photo: null, songs: [{ title: 'â' }, { title: 'â' }, { title: 'â' }] },
+]
+
+/* â Blog posts data â */
+const POSTS = [
+  {
+    slug: 'rnb-artists-to-watch-2026',
+    title: '10 R&B Artists You Need to Know in 2026',
+    date: 'Jan 15, 2026',
+    category: 'Features',
+    readTime: '7 min read',
+    excerpt: 'From bedroom pop to Atlanta trap-soul, these ten names are defining what R\u0026B sounds like in 2026.',
+  },
+  {
+    slug: 'falsetto-renaissance-rnb',
+    title: 'The Falsetto Renaissance: Why R&B Singers Are Going Higher',
+    date: 'Sep 18, 2025',
+    category: 'Culture',
+    readTime: '4 min read',
+    excerpt: 'From PinkPantheress to Daniel Caesar, a new generation is embracing head voice as emotional language.',
+  },
+  {
+    slug: 'afrobeats-rnb-transatlantic-love-story',
+    title: 'Afrobeats and R&B: How Two Genres Became One Sound',
+    date: 'Aug 10, 2025',
+    category: 'Culture',
+    readTime: '5 min read',
+    excerpt: 'The cross-pollination of Afrobeats and American R\u0026B has produced a new transatlantic sound reshaping the charts.',
+  },
+  {
+    slug: 'best-rnb-albums-2025',
+    title: 'The Best R&B Albums of 2025: Our Year-End Picks',
+    date: 'Dec 20, 2025',
+    category: 'Reviews',
+    readTime: '8 min read',
+    excerpt: 'A definitive ranking of the most essential R\u0026B records that shaped the sound of 2025.',
+  },
 ]
 
 export default function BlogGrid() {
@@ -32,7 +68,7 @@ export default function BlogGrid() {
 
   return (
     <>
-      {/* ── Featured Blog Post Banner ── */}
+      {/* ââ Featured Blog Post Banner ââ */}
       <section className="w-full bg-[#3d1a22] border-t border-b border-[#e3d1b8]/10 px-4 py-8">
         <div className="max-w-screen-xl mx-auto">
           <button
@@ -54,7 +90,7 @@ export default function BlogGrid() {
               </span>
               <div>
                 <p className="font-oswald text-[9px] tracking-[0.3em] text-[#e3d1b8]/35 uppercase mb-1">
-                  Site Update · March 9, 2026
+                  Site Update Â· March 9, 2026
                 </p>
                 <h3
                   className="font-oswald font-bold text-[#e3d1b8]/85 uppercase leading-tight"
@@ -68,7 +104,7 @@ export default function BlogGrid() {
                   Welcome to the New Definition of R&amp;B: Streamlined, Mobile-Ready, and Built for Artists
                 </h3>
                 <p className="font-inter text-[12px] text-[#e3d1b8]/40 mt-1.5 leading-relaxed max-w-[560px]">
-                  We rebuilt the platform from the ground up — new mobile experience, live nav links, a Reviews page, and the new Artist of the Week Promotion feature.
+                  We rebuilt the platform from the ground up â new mobile experience, live nav links, a Reviews page, and the new Artist of the Week Promotion feature.
                 </p>
               </div>
             </div>
@@ -84,14 +120,14 @@ export default function BlogGrid() {
         </div>
       </section>
 
-      {/* ── Artists grid ── */}
+      {/* ââ Artists grid ââ */}
       <section id="artists" className="w-full bg-[#5c2a35] py-12 px-4">
         <div className="max-w-screen-xl mx-auto">
 
           {/* Section header */}
           <div className="text-center mb-10">
             <p className="font-oswald text-[10px] tracking-[0.4em] text-[#e3d1b8]/35 uppercase mb-2">
-              ◆ Spotlight ◆
+              â Spotlight â
             </p>
             <h2
               className="font-oswald font-bold text-[#e3d1b8] uppercase tracking-[0.1em]"
@@ -141,6 +177,57 @@ export default function BlogGrid() {
           </div>
         </div>
       </section>
+      {/* âââ Latest from the Blog âââ */}
+      <section className="max-w-[1200px] mx-auto px-4 py-16">
+        <div className="flex items-center justify-between mb-8">
+          <h2
+            className="font-oswald font-bold text-[#e3d1b8] uppercase leading-tight"
+            style={{ fontSize: 'clamp(1.2rem, 3vw, 2rem)' }}
+          >
+            Latest from the Blog
+          </h2>
+          <a
+            href="/blog"
+            className="font-oswald text-[11px] tracking-[0.25em] uppercase text-[#e3d1b8]/60 hover:text-[#e3d1b8] transition-colors"
+          >
+            View all â
+          </a>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {POSTS.map(post => (
+            <a
+              key={post.slug}
+              href={'/blog/' + post.slug}
+              className="group block bg-[#1a1a1a] border border-[#e3d1b8]/10 rounded-lg overflow-hidden hover:border-[#e3d1b8]/30 transition-all duration-300"
+            >
+              <div className="p-5">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="font-oswald text-[9px] tracking-[0.3em] uppercase bg-[#5c2a35] text-[#e3d1b8] px-2 py-[3px]">
+                    {post.category}
+                  </span>
+                  <span className="font-oswald text-[9px] tracking-[0.2em] uppercase text-[#e3d1b8]/40">
+                    {post.readTime}
+                  </span>
+                </div>
+                <h3
+                  className="font-oswald font-bold text-[#e3d1b8] leading-tight mb-2 group-hover:text-white transition-colors"
+                  style={{ fontSize: 'clamp(0.85rem, 1.5vw, 1rem)' }}
+                >
+                  {post.title}
+                </h3>
+                <p className="font-inter text-[11px] text-[#e3d1b8]/50 leading-relaxed line-clamp-3">
+                  {post.excerpt}
+                </p>
+                <div className="mt-4 flex items-center gap-1 font-oswald text-[9px] tracking-[0.2em] uppercase text-[#e3d1b8]/40 group-hover:text-[#e3d1b8]/70 transition-colors">
+                  Read more <span>â</span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
     </>
   )
 }
