@@ -112,7 +112,7 @@ export default function Footer({ onSubmitClick }) {
         {/* ââ Bottom bar ââ */}
         <div className="border-t border-[#e3d1b8]/10 pt-5 flex flex-col sm:flex-row justify-between gap-2">
           <p className="font-inter text-[9px] tracking-[0.2em] text-[#e3d1b8]/22 uppercase">
-            &copy; 2011â2026 The Definition of R&amp;B. All Rights Reserved. A Division of the Definition of Music Group.
+            &copy; 2011&ndash;2026 The Definition of R&amp;B. All Rights Reserved. A Division of the Definition of Music Group.
           </p>
           <p className="font-inter text-[9px] tracking-[0.2em] text-[#e3d1b8]/15 uppercase">
             Built for the culture.
