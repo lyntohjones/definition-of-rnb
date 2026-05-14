@@ -35,7 +35,20 @@ const IconArrow = () => (
   </svg>
 )
 
-export default function BlogBestAlbums2025() {
+const ArtistPhoto = ({ src, alt, credit }) => (
+  <div className="my-8 text-center">
+    <img
+      src={src}
+      alt={alt}
+      onError={(e) => { e.target.parentElement.style.display = 'none' }}
+      className="w-full max-w-md mx-auto rounded-xl block"
+    />
+    {credit && (
+      <p className="font-inter text-[12px] text-[#e3d1b8]/35 mt-2 italic">{credit}</p>
+    )}
+  </div>
+)
+export default function Blog() {
   const [showSubmit, setShowSubmit] = useState(false)
   const navigate = useNavigate()
 
@@ -63,7 +76,7 @@ export default function BlogBestAlbums2025() {
           <div className="flex flex-wrap items-center gap-3 mb-5">
             <span className="font-oswald text-[9px] tracking-[0.3em] uppercase bg-[#e3d1b8]/10 border border-[#e3d1b8]/20 text-[#e3d1b8]/70 px-3 py-[4px]">{POST.category}</span>
             <span className="font-inter text-[11px] text-[#e3d1b8]/30">{POST.date}</span>
-            <span className="font-inter text-[11px] text-[#e3d1b8]/20">Â·</span>
+            <span className="font-inter text-[11px] text-[#e3d1b8]/20">&middot;</span>
             <span className="font-inter text-[11px] text-[#e3d1b8]/30">{POST.readTime}</span>
           </div>
           <h1 className="font-oswald font-bold text-[#e3d1b8] uppercase leading-tight mb-4 max-w-[820px]"
@@ -83,10 +96,9 @@ export default function BlogBestAlbums2025() {
         </div>
       </header>
 
-      <article className="max-w[760px] mx-auto px-5 sm:px-6 py-12">
-
+      <article className="max-w-[760px] mx-auto px-5 sm:px-6 py-12">
         <p className="font-inter text-[14px] md:text-[15px] text-[#e3d1b8]/75 leading-[1.9] mb-8">
-          Every December we sit down and ask the same question: did this genre move? In 2025, the answer was an unambiguous yes. R&B continued its quiet evolution â pulling from gospel, Afrobeats, indie, and electronic music while never losing the emotional core that makes it distinct. These are the albums and projects that stayed in our rotation all year and deserve to define how we remember 2025.
+          Look, 2025 did not disappoint. Every December we ask the same question: did the genre move this year? This year the answer is yes, clearly, in multiple directions at once. Here are the records that stayed in our rotation and deserve to define how we remember 2025 in R&B.
         </p>
 
         <div className="flex items-center gap-4 mb-10">
@@ -94,98 +106,100 @@ export default function BlogBestAlbums2025() {
           <span className="font-oswald text-[9px] tracking-[0.4em] text-[#e3d1b8]/25 uppercase">The List</span>
           <div className="flex-1 h-[1px] bg-[#e3d1b8]/10" />
         </div>
-
         <section className="mb-12">
-          <h2 className="font-oswald font-bold text-[#e3d1b8] uppercase tracking-wide mb-2"
-            style={{ fontSize: 'clamp(1.2rem, 3vw, 1.7rem)' }}>
-            1. Aqyila â <span className="text-[#e3d1b8]/60">Falling Into Place</span>
+          <h2 className="font-oswald font-bold text-[#e3d1b8] uppercase tracking-wide mb-2" style={{ fontSize: 'clamp(1.2rem, 3vw, 1.7rem)' }}>
+            1. Aqyila &mdash; <span className="text-[#e3d1b8]/60">Falling Into Place</span>
           </h2>
-          <p className="font-inter text-[11px] text-[#e3d1b8]/35 uppercase tracking-[0.2em] mb-4">Album Â· March 2025 Â· Independent</p>
-          <p className="font-inter text-[14px] md:text-[15px] text-[#e3d1b8]/70 leading-[1.9] mb-4">
-            The year's most complete debut. Aqyila did not arrive asking for patience â she arrived fully formed. Eleven tracks of gospel-warm, Caribbean-tinged neo-soul that feel as cohesive as albums that take decades to develop. "Bloom" is the easy standout, but the album's second half â especially the run from "River Run" through the closing title track â reveals an artist who thinks in album-length statements, not singles. The production, largely self-directed, refuses to overwhelm her voice. This is the rare debut that you feel immediately but only fully understand on the fifth listen.
-          </p>
+          <p className="font-inter text-[11px] text-[#e3d1b8]/35 uppercase tracking-[0.2em] mb-4">Album &middot; March 2025 &middot; Independent</p>
+                  <p className="font-inter text-[14px] md:text-[15px] text-[#e3d1b8]/70 leading-[1.9] mb-5">
+          The year's most complete debut, and it is not particularly close. Aqyila did not arrive asking for patience - she arrived fully formed. Eleven tracks of gospel-warm, Caribbean-tinged neo-soul that feel as cohesive as albums that take decades to develop. The production refuses to overwhelm her voice, which is the smartest decision on the record. You can hear every breath she takes.
+        </p>
+        <ArtistPhoto src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Aqyila_2025.jpg/400px-Aqyila_2025.jpg" alt="Aqyila" credit="Aqyila - Photo: Wikimedia Commons" />
+        <p className="font-inter text-[14px] md:text-[15px] text-[#e3d1b8]/70 leading-[1.9] mb-5">
+          "Bloom" is the easy standout. But the album's second half - especially the run from "River Run" through the closing title track - is where you realize you are dealing with someone who thinks in album-length statements, not singles. Listen to it front to back at least twice before you decide.
+        </p>
+
+        </section>
+        <section className="mb-12">
+          <h2 className="font-oswald font-bold text-[#e3d1b8] uppercase tracking-wide mb-2" style={{ fontSize: 'clamp(1.2rem, 3vw, 1.7rem)' }}>
+            2. Odeal &mdash; <span className="text-[#e3d1b8]/60">The Summer That Saved Me</span>
+          </h2>
+          <p className="font-inter text-[11px] text-[#e3d1b8]/35 uppercase tracking-[0.2em] mb-4">Project &middot; October 2025 &middot; Independent</p>
+                  <p className="font-inter text-[14px] md:text-[15px] text-[#e3d1b8]/70 leading-[1.9] mb-5">
+          Billboard's African Rookie of the Year built something genuinely new in 2025. Odeal's British-Nigerian perspective refuses to be categorized as simply Afrobeats or simply R&B - it sits exactly at the intersection where both genres are most honest about what they are.
+        </p>
+        <p className="font-inter text-[14px] md:text-[15px] text-[#e3d1b8]/70 leading-[1.9] mb-5">
+          "Miami" featuring Leon Thomas became one of the most-replayed songs in our office. His baritone carries a warmth that makes confessional lyrics feel like conversation. This is the sound of the transatlantic R&B convergence at its best.
+        </p>
+
+        </section>
+        <section className="mb-12">
+          <h2 className="font-oswald font-bold text-[#e3d1b8] uppercase tracking-wide mb-2" style={{ fontSize: 'clamp(1.2rem, 3vw, 1.7rem)' }}>
+            3. Gabriel Jacoby &mdash; <span className="text-[#e3d1b8]/60">Red Dirt Gospel</span>
+          </h2>
+          <p className="font-inter text-[11px] text-[#e3d1b8]/35 uppercase tracking-[0.2em] mb-4">Album &middot; June 2025 &middot; Independent</p>
+                  <p className="font-inter text-[14px] md:text-[15px] text-[#e3d1b8]/70 leading-[1.9] mb-5">
+          The South Carolina native made the best Southern soul album of the year without announcing it as such. Red Dirt Gospel is rooted in church and field and late nights, and it sounds like all three simultaneously. Jacoby's smoky falsetto is not technically perfect - it is emotionally precise, which is much harder.
+        </p>
+        <p className="font-inter text-[14px] md:text-[15px] text-[#e3d1b8]/70 leading-[1.9] mb-5">
+          The production keeps things sparse. Every note Jacoby sings has room to breathe. "Carolina" is the song we kept coming back to, but the whole project is airtight.
+        </p>
+
+        </section>
+        <section className="mb-12">
+          <h2 className="font-oswald font-bold text-[#e3d1b8] uppercase tracking-wide mb-2" style={{ fontSize: 'clamp(1.2rem, 3vw, 1.7rem)' }}>
+            4. Pimmie &mdash; <span className="text-[#e3d1b8]/60">BITTERSWEET</span>
+          </h2>
+          <p className="font-inter text-[11px] text-[#e3d1b8]/35 uppercase tracking-[0.2em] mb-4">Album &middot; September 2025 &middot; OVO/Republic</p>
+                  <p className="font-inter text-[14px] md:text-[15px] text-[#e3d1b8]/70 leading-[1.9] mb-5">
+          Pimmie's debut did not get the mainstream attention it deserved when it dropped, and that is the story of every year in R&B. BITTERSWEET is a strikingly self-assured record from a vocalist who also produces most of her own material, which shows.
+        </p>
+        <p className="font-inter text-[14px] md:text-[15px] text-[#e3d1b8]/70 leading-[1.9] mb-5">
+          The combination of vocal precision and production instinct on this album is genuinely rare. She knows exactly what she wants every track to feel like, and she knows how to build toward it. This one will get its flowers eventually.
+        </p>
+
+        </section>
+        <section className="mb-12">
+          <h2 className="font-oswald font-bold text-[#e3d1b8] uppercase tracking-wide mb-2" style={{ fontSize: 'clamp(1.2rem, 3vw, 1.7rem)' }}>
+            5. Leven Kali &mdash; <span className="text-[#e3d1b8]/60">Soft Landing</span>
+          </h2>
+          <p className="font-inter text-[11px] text-[#e3d1b8]/35 uppercase tracking-[0.2em] mb-4">Album &middot; April 2025 &middot; Independent</p>
+                  <p className="font-inter text-[14px] md:text-[15px] text-[#e3d1b8]/70 leading-[1.9] mb-5">
+          Leven Kali has been a cornerstone of the neo-soul underground for years as a collaborator, session musician, and co-writer on records across the genre. Soft Landing is him stepping fully into the center, and the result is everything his collaborators already knew he was capable of.
+        </p>
+        <p className="font-inter text-[14px] md:text-[15px] text-[#e3d1b8]/70 leading-[1.9] mb-5">
+          He plays most of the instruments himself. His guitar work alone is worth the price of admission. But it is the way his vocal and instrumental instincts work together that makes this a fully realized creative statement rather than a showcase.
+        </p>
+
         </section>
 
-        <section className="mb-12">
-          <h2 className="font-oswald font-bold text-[#e3d1b8] uppercase tracking-wide mb-2"
-            style={{ fontSize: 'clamp(1.2rem, 3vw, 1.7rem)' }}>
-            2. Odeal â <span className="text-[#e3d1b8]/60">The Summer That Saved Me</span>
-          </h2>
-          <p className="font-inter text-[11px] text-[#e3d1b8]/35 uppercase tracking-[0.2em] mb-4">Project Â· October 2024 Â· Independent</p>
-          <p className="font-inter text-[14px] md:text-[15px] text-[#e3d1b8]/70 leading-[1.9] mb-4">
-            Billboard's African Rookie of the Year built something genuinely new this year. Odeal's British-Nigerian perspective refuses to be categorized as simply Afrobeats or simply R&B â it sits at the intersection where both genres are most honest. "Miami," featuring Leon Thomas, became one of the most replayed songs in our office. His baritone carries a warmth that makes confessional lyrics feel like conversation rather than performance. The Summer That Saved Me is proof that the most exciting R&B in 2025 is being made by artists who refuse to draw borders around themselves.
-          </p>
-        </section>
-
-        <section className="mb-12">
-          <h2 className="font-oswald font-bold text-[#e3d1b8] uppercase tracking-wide mb-2"
-            style={{ fontSize: 'clamp(1.2rem, 3vw, 1.7rem)' }}>
-            3. Pimmie â <span className="text-[#e3d1b8]/60">BITTEDRSWEET EP</span>
-          </h2>
-          <p className="font-inter text-[11px] text-[#e3d1b8]/35 uppercase tracking-[0.2em] mb-4">EP Â· November 2024 Â· OVO / Republic</p>
-          <p className="font-inter text-[14px] md:text-[15px] text-[#e3d1b8]/70 leading-[1.9] mb-4">
-            If you slept on BITTERSWEET when it dropped, this list is your correction. Pimmie â the Houston singer and mixing engineer who appeared on Drake and PARTYNEXTDOOR's joint album â stepped fully into her own light and did not look back. These are late-night ballads built for the 3am version of every feeling: the love you cannot name, the loss you cannot process, the joy that hurts a little because you know it will end. Her production ear is as sharp as her vocals. "PIMMIE'S DILEMMA" alone justifies every award conversation she belongs in.
-          </p>
-        </section>
-
-        <section className="mb-12">
-          <h2 className="font-oswald font-bold text-[#e3d1b8] uppercase tracking-wide mb-2"
-            style={{ fontSize: 'clamp(1.2rem, 3vw, 1.7rem)' }}>
-            4. EJ Jones â <span className="text-[#e3d1b8]/60">Singles Run</span>
-          </h2>
-          <p className="font-inter text-[11px] text-[#e3d1b8]/35 uppercase tracking-[0.2em] mb-4">Singles Â· 2025 Â· Independent</p>
-          <p className="font-inter text-[14px] md:text-[15px] text-[#e3d1b8]/70 leading-[1.9] mb-4">
-            EJ Jones did not release an album in 2025. What he released was a series of singles that collectively feel like the most coherent body of work from any artist this year. "Gas Station Love" set the tone in January â stripped-back, voice-forward, channeling Bobby Womack without impersonating him â and he sustained that standard across every subsequent drop. There is an argument that his singles run represents the most accomplished songwriting of the year in the classic soul tradition. We are already anticipating what a full album would look like.
-          </p>
-        </section>
-
-        <section className="mb-12">
-          <h2 className="font-oswald font-bold text-[#e3d1b8] uppercase tracking-wide mb-2"
-            style={{ fontSize: 'clamp(1.2rem, 3vw, 1.7rem)' }}>
-            5. Gabriel Jacoby â <span className="text-[#e3d1b8]/60">Southern Soul Singles</span>
-          </h2>
-          <p className="font-inter text-[11px] text-[#e3d1b8]/35 uppercase tracking-[0.2em] mb-4">Singles Â· 2024â2025 Â· Pulse Records</p>
-          <p className="font-inter text-[14px] md:text-[15px] text-[#e3d1b8]/70 leading-[1.9] mb-4">
-            The South Carolina native arrived with "The One" and immediately sounded like an artist who had been making records for 30 years. Smoky Southern falsetto, deep guitar grooves, funky horns â the kind of sound that does not chase trends because it exists outside of them. His Billboard R&B Fresh Pick designation was not a discovery so much as a confirmation. By the end of 2025, Gabriel Jacoby had become one of the names that every serious R&B conversation had to include.
-          </p>
-        </section>
-
-        <blockquote className="border-l-4 border-[#e3d1b8]/30 pl-6 py-2 my-10">
-          <p className="font-oswald text-[#e3d1b8]/70 italic leading-relaxed"
-            style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)' }}>
-            "The best R&B of 2025 shared one quality: it sounded like it could only have been made by the person who made it."
-          </p>
-        </blockquote>
-
-        <section className="mb-12">
-          <h2 className="font-oswald font-bold text-[#e3d1b8] uppercase tracking-wide mb-5"
-            style={{ fontSize: 'clamp(1.2rem, 3vw, 1.7rem)' }}>
-            Honourable Mentions
-          </h2>
-          <p className="font-inter text-[14px] md:text-[15px] text-[#e3d1b8]/70 leading-[1.9] mb-4">
-            JayDon's "Lullaby" featuring Usher made the case that R&B has a generation ready to carry the torch. At 18, his vocal control on that record belongs in a different conversation entirely â the conversation about artists who arrive without needing to grow into themselves. We also want to acknowledge the wave of independent artists who released work through streaming platforms alone and found audiences who genuinely cared. The infrastructure of R&B discovery is changing, and 2025 was the year that became undeniable.
-          </p>
-          <p className="font-inter text-[14px] md:text-[15px] text-[#e3d1b8]/70 leading-[1.9]">
-            What made 2025 exceptional was not any single album but the collective weight of the year's output. The genre is not in crisis. It is in conversation â with itself, with its history, and with everyone listening. We cannot wait to hear what 2026 brings.
-          </p>
-        </section>
-
-        <div className="border-t border-[#e3d1b8]/10 pt-8 mt-8">
-          <p className="font-oswald text-[#e3d1b8]/50 italic text-base mb-8">â The Definition of R&B Editorial Team</p>
-          <div className="flex flex-wrap gap-3">
-            <button onClick={() => { navigate('/reviews'); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
-              className="flex items-center gap-2 bg-[#e3d1b8] text-[#5c2a35] font-oswald font-bold text-[11px] tracking-[0.2em] uppercase px-7 py-3 hover:bg-white transition-colors">
-              Read Our Reviews <IconArrow />
-            </button>
-            <button onClick={() => { navigate('/'); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
-              className="flex items-center gap-2 border border-[#e3d1b8]/40 text-[#e3d1b8] font-oswald font-bold text-[11px] tracking-[0.2em] uppercase px-7 py-3 hover:bg-[#e3d1b8]/10 transition-colors">
-              Discover Artists <IconArrow />
-            </button>
-          </div>
+        <div className="flex items-center gap-4 mb-10">
+          <div className="flex-1 h-[1px] bg-[#e3d1b8]/10" />
+          <span className="font-oswald text-[9px] tracking-[0.4em] text-[#e3d1b8]/25 uppercase">The Takeaway</span>
+          <div className="flex-1 h-[1px] bg-[#e3d1b8]/10" />
         </div>
+        <section className="mb-10">
+        <h2 className="font-oswald font-bold text-[#e3d1b8] uppercase tracking-wide mb-5" style={{ fontSize: 'clamp(1.2rem, 3vw, 1.7rem)' }}>
+          What 2025 Actually Said About R&B
+        </h2>
+        <p className="font-inter text-[14px] md:text-[15px] text-[#e3d1b8]/70 leading-[1.9] mb-5">
+          The through-line across every album on this list is independence. Four of the five records here were either self-released or released on small independent labels. The genre's most exciting work is not coming from major label rollouts with radio campaigns. It is coming from artists who are building their own audiences, one honest record at a time.
+        </p>
+        <p className="font-inter text-[14px] md:text-[15px] text-[#e3d1b8]/70 leading-[1.9] mb-5">
+          R&B has always been at its best when it is allowed to be emotionally direct without apology. 2025 delivered that in abundance. We cannot wait to see what 2026 brings.
+        </p>
+        </section>
+        <div className="mt-16 pt-8 border-t border-[#e3d1b8]/10">
+          <button onClick={() => { navigate('/'); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
+            className="inline-flex items-center gap-2 font-inter text-[12px] text-[#e3d1b8]/40 hover:text-[#e3d1b8]/70 transition-colors bg-transparent border-none cursor-pointer p-0">
+            <IconArrow />
+            Back to home
+          </button>
+        </div>
+
       </article>
 
-      <Footer onSubmitClick={() => setShowSubmit(true)} />
+      <Footer />
       {showSubmit && <SubmitMusic onClose={() => setShowSubmit(false)} />}
     </div>
   )
