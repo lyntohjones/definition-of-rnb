@@ -3,19 +3,19 @@ import { useNavigate } from 'react-router-dom'
 import ArtistCard from './ArtistCard'
 import SidebarAd from './SidebarAd'
 
-/* ââ Arrow icon ââ */
+/* -- Arrow icon -- */
 const IconArrow = () => (
   <svg viewBox="0 0 16 16" fill="none" className="w-3.5 h-3.5">
     <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 )
 
-/* ââ Fallback data ââ */
+/* -- Fallback data -- */
 const FALLBACK = [
-  { id: 1, label: 'Rising Artist', name: 'Loading...', bio: 'Discovering new artists...', photo: null, songs: [{ title: 'â' }, { title: 'â' }, { title: 'â' }] },
+  { id: 1, label: 'Rising Artist', name: 'Loading...', bio: 'Discovering new artists...', photo: null, songs: [{ title: ' - ' }, { title: ' - ' }, { title: ' - ' }] },
 ]
 
-/* â Blog posts data â */
+/*  -  Blog posts data  -  */
 const POSTS = [
   {
     slug: 'rnb-artists-to-watch-2026',
@@ -68,7 +68,7 @@ export default function BlogGrid() {
 
   return (
     <>
-      {/* ââ Featured Blog Post Banner ââ */}
+      {/* -- Featured Blog Post Banner -- */}
       <section className="w-full bg-[#3d1a22] border-t border-b border-[#e3d1b8]/10 px-4 py-8">
         <div className="max-w-screen-xl mx-auto">
           <button
@@ -90,7 +90,7 @@ export default function BlogGrid() {
               </span>
               <div>
                 <p className="font-oswald text-[9px] tracking-[0.3em] text-[#e3d1b8]/35 uppercase mb-1">
-                  Site Update Â· March 9, 2026
+                  Site Update &middot; March 9, 2026
                 </p>
                 <h3
                   className="font-oswald font-bold text-[#e3d1b8]/85 uppercase leading-tight"
@@ -104,7 +104,7 @@ export default function BlogGrid() {
                   Welcome to the New Definition of R&amp;B: Streamlined, Mobile-Ready, and Built for Artists
                 </h3>
                 <p className="font-inter text-[12px] text-[#e3d1b8]/40 mt-1.5 leading-relaxed max-w-[560px]">
-                  We rebuilt the platform from the ground up â new mobile experience, live nav links, a Reviews page, and the new Artist of the Week Promotion feature.
+                  We rebuilt the platform from the ground up  -  new mobile experience, live nav links, a Reviews page, and the new Artist of the Week Promotion feature.
                 </p>
               </div>
             </div>
@@ -120,14 +120,14 @@ export default function BlogGrid() {
         </div>
       </section>
 
-      {/* ââ Artists grid ââ */}
+      {/* -- Artists grid -- */}
       <section id="artists" className="w-full bg-[#5c2a35] py-12 px-4">
         <div className="max-w-screen-xl mx-auto">
 
           {/* Section header */}
           <div className="text-center mb-10">
             <p className="font-oswald text-[10px] tracking-[0.4em] text-[#e3d1b8]/35 uppercase mb-2">
-              â Spotlight â
+              * Spotlight *
             </p>
             <h2
               className="font-oswald font-bold text-[#e3d1b8] uppercase tracking-[0.1em]"
@@ -177,7 +177,7 @@ export default function BlogGrid() {
           </div>
         </div>
       </section>
-      {/* âââ Latest from the Blog âââ */}
+      {/*  -  -  -  Latest from the Blog  -  -  -  */}
       <section className="max-w-[1200px] mx-auto px-4 py-16">
         <div className="flex items-center justify-between mb-8">
           <h2
@@ -190,7 +190,7 @@ export default function BlogGrid() {
             href="/blog"
             className="font-oswald text-[11px] tracking-[0.25em] uppercase text-[#e3d1b8]/60 hover:text-[#e3d1b8] transition-colors"
           >
-            View all â
+            View all &rarr;
           </a>
         </div>
 
@@ -220,7 +220,7 @@ export default function BlogGrid() {
                   {post.excerpt}
                 </p>
                 <div className="mt-4 flex items-center gap-1 font-oswald text-[9px] tracking-[0.2em] uppercase text-[#e3d1b8]/40 group-hover:text-[#e3d1b8]/70 transition-colors">
-                  Read more <span>â</span>
+                  Read more <span>&rarr;</span>
                 </div>
               </div>
             </a>
