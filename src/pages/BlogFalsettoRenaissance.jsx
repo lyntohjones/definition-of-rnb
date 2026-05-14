@@ -11,7 +11,7 @@ const POST = {
   category: 'Culture',
   readTime: '4 min read',
   title: 'The Falsetto Renaissance: Why R&B Singers Are Going Higher',
-  subtitle: 'From Maxwell to JayDon, the falsetto has always been R&B's most vulnerable instrument. Right now it is everywhere - and that is not an accident.',
+  subtitle: "From Maxwell to JayDon, the falsetto has always been R&B's most vulnerable instrument. Right now it is everywhere - and that is not an accident.",
   author: 'The Definition of R&B Editorial Team',
 }
 
