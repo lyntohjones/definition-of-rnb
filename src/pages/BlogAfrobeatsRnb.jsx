@@ -11,7 +11,7 @@ const POST = {
   category: 'Culture',
   readTime: '5 min read',
   title: 'Afrobeats and R&B: How Two Genres Became One Sound',
-  subtitle: 'From Wizkid's falsetto to Odeal's baritone - why the line between Afrobeats and R&B has never been thinner.',
+  subtitle: "From Wizkid's falsetto to Odeal's baritone - why the line between Afrobeats and R&B has never been thinner.",
   author: 'The Definition of R&B Editorial Team',
 }
 
