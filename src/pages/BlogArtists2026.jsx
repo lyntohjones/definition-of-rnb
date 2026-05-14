@@ -11,7 +11,7 @@ const POST = {
   category: 'Features',
   readTime: '7 min read',
   title: '10 R&B Artists You Need to Know in 2026',
-  subtitle: 'The names defining the genre's next chapter - from cult followings to artists on the verge of breaking through.',
+  subtitle: "The names defining the genre's next chapter - from cult followings to artists on the verge of breaking through.",
   author: 'The Definition of R&B Editorial Team',
 }
 
