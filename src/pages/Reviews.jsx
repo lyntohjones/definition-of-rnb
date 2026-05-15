@@ -16,7 +16,7 @@ const Stars = ({ rating }) => (
         className={`w-3 h-3 ${n <= rating ? 'text-[#e3d1b8]' : 'text-[#e3d1b8]/20'}`}>
         <path d="M6 0l1.545 3.09L11 3.635l-2.5 2.455.59 3.455L6 7.91l-3.09 1.635L3.5 6.09 1 3.635l3.455-.545z"/>
       </svg>
-    ))}hh
+    ))}
   </div>
 )
 
