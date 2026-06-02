@@ -126,5 +126,41 @@
       { "title": "Blame U" },
       { "title": "London Summers" }
     ]
+  },
+  {
+    "id": 9,
+    "label": "Up & Coming",
+    "name": "Amindi",
+    "bio": "Ugandan-British artist building one of the most distinct sounds in alternative R&B. Her blend of East African musical traditions with contemporary production is unlike anything else in the genre. Once you hear it, it is hard to unhear.",
+    "photo": "https://i.scdn.co/image/ab6761610000101fd1379fa02c5997717d6eaf3a",
+    "songs": [
+      { "title": "Don't Be Serious" },
+      { "title": "Feels Good" },
+      { "title": "Pink Puppy" }
+    ]
+  },
+  {
+    "id": 10,
+    "label": "Up & Coming",
+    "name": "Fana Hues",
+    "bio": "Few artists working today move between delicate vulnerability and fierce directness without ever feeling inconsistent. Fana Hues does it naturally. Her voice is both instrument and statement — one of R&B's best-kept secrets and one of its most essential voices.",
+    "photo": "https://i.scdn.co/image/ab6761670000ecd479712bf0718c962de38dcc1a",
+    "songs": [
+      { "title": "Mood" },
+      { "title": "Circles" },
+      { "title": "Aquarius" }
+    ]
+  },
+  {
+    "id": 11,
+    "label": "Up & Coming",
+    "name": "Leven Kali",
+    "bio": "Neo-soul cornerstone who has spent years as the best collaborator in the room — now stepping into the spotlight as a lead artist. Guitarist, vocalist, and songwriter with a depth of musicianship that puts him in rare company. Soft Landing was the mission statement.",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Leven_Kali_2022.jpg/640px-Leven_Kali_2022.jpg",
+    "songs": [
+      { "title": "Outro" },
+      { "title": "Do U Wrong", "feat": "Syd" },
+      { "title": "Riding High" }
+    ]
   }
 ]
