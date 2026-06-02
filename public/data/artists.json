@@ -2,6 +2,33 @@
   {
     "id": 1,
     "label": "Artist of the Week",
+    "name": "Imani Imani",
+    "instagram": "imanimani",
+    "bio": "pgLang's newest signee — the same roster as Kendrick Lamar, Baby Keem, and Tanna Leone. Signed in 2024, she arrived with a surprise debut album 'Papercut' and a music video for 'Mindgames' that made the whole internet pay attention at once.",
+    "photo": "https://i.scdn.co/image/ab6761610000101f97864d69c44a058ab53e791b",
+    "photoFocus": "50% 20%",
+    "songs": [
+      { "title": "Papercut" },
+      { "title": "Mindgames" }
+    ],
+    "feature": {
+      "album": "Papercut",
+      "releaseDate": "2025 — Debut Album · pgLang",
+      "paragraphs": [
+        "Imani Imani did not announce herself gradually. She dropped a full surprise album titled 'Papercut' and let it land however it was going to land. Alongside the release, pgLang — the creative agency co-founded by Kendrick Lamar and Dave Free — posted a cryptic announcement highlighting their newest artist. The response was immediate.",
+        "Her first official music video, for album track 'Mindgames,' is already out and makes clear this is an artist who thinks in images as well as sound. The production is restrained, her vocal sits in the center of it without demanding space, and the writing is direct in the way that only comes from someone who has been carrying these songs for a long time. She was signed in 2024. 'Papercut' is her opening statement — and it is a strong one."
+      ],
+      "highlights": ["Mindgames", "Papercut"],
+      "accolades": [
+        "pgLang — 2024 Signee",
+        "Debut Album: Papercut",
+        "Roster: Kendrick Lamar · Baby Keem · Tanna Leone"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "label": "Featured Artist",
     "name": "Aqyila",
     "instagram": "aqyila",
     "bio": "Toronto-born Canadian-Jamaican R&B singer-songwriter raised in Downsview. With 67M+ career streams and 849K monthly Spotify listeners, Aqyila blends gospel, neo-soul, and Caribbean roots into a sound that feels both timeless and fresh.",
@@ -29,7 +56,7 @@
     }
   },
   {
-    "id": 2,
+    "id": 3,
     "label": "Rising Artist",
     "name": "EJ Jones",
     "bio": "Memphis soul singer signed to Quality Control with Otis Redding-level vocals. Started posting phone-recorded Sam Cooke covers on Facebook before his breakout original \"Gas Station Love\" racked up 128K Spotify streams in days. Old soul energy channeling Bobby Womack and Johnnie Taylor.",
@@ -41,7 +68,7 @@
     ]
   },
   {
-    "id": 3,
+    "id": 4,
     "label": "Rising Artist",
     "name": "JayDon",
     "bio": "18-year-old R&B prodigy signed to Usher and L.A. Reid's mega label. Started as JD McCrary performing Jackson 5 covers that impressed Childish Gambino. His debut EP 'Me My Songs & I' hit #8 on Apple Music's R&B chart and \"Lullaby\" went #1 on Spotify Viral 50 in South Korea.",
@@ -53,7 +80,7 @@
     ]
   },
   {
-    "id": 4,
+    "id": 5,
     "label": "Up & Coming",
     "name": "Gabriel Jacoby",
     "bio": "South Carolina native with a smoky, raspy Southern falsetto over deep guitar grooves and funky horns. Debut EP 'Gutta Child' via Pulse Records, 4.3M+ streams across his catalog. Named a Shazam Fast Forward Artist and co-wrote for Shaboozey. Billboard R&B Fresh Pick.",
@@ -65,7 +92,7 @@
     ]
   },
   {
-    "id": 5,
+    "id": 6,
     "label": "New Artist",
     "name": "Pimmie",
     "bio": "Houston singer and mixing engineer who landed on Drake and PARTYNEXTDOOR's '$ome $exy $ongs 4 U' album. Debut EP 'BITTERSWEET' is a collection of smoldering late-night ballads. Her soulful vocals over lo-fi textures explore the raw side of modern relationships.",
@@ -77,7 +104,7 @@
     ]
   },
   {
-    "id": 6,
+    "id": 7,
     "label": "Up & Coming",
     "name": "Ebony Riley",
     "bio": "Former high-fashion model (Riley Montana) turned R&B vocalist signed to Interscope. Her single \"Mirror\" is an early-90s throwback produced by Bryan-Michael Cox and Jermaine Dupri. Classic soul meets contemporary R&B as she preps her debut album.",
@@ -89,7 +116,7 @@
     ]
   },
   {
-    "id": 7,
+    "id": 8,
     "label": "New Artist",
     "name": "Odeal",
     "bio": "British-Nigerian singer fusing R&B with Afrobeats and alte sensibilities. Billboard's African Rookie of the Year 2025 with 4.9M monthly Spotify listeners. His project 'The Summer That Saved Me' blends polished guitars and baritone vocals across a global R&B sound.",
