@@ -12,6 +12,7 @@ import SEO         from './components/SEO'
 import Reviews       from './pages/Reviews'
 import Promote       from './pages/Promote'
 import BlogPost      from './pages/BlogPost'
+import Blog          from './pages/Blog'
 import About         from './pages/About'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
@@ -109,17 +110,18 @@ export default function App() {
       <Route path="/"                                            element={<Home />} />
       <Route path="/reviews"                                     element={<Reviews />} />
       <Route path="/promote"                                     element={<Promote />} />
+      <Route path="/blog"                                        element={<Blog />} />
       <Route path="/blog/welcome-to-the-new-definition-of-rnb"  element={<BlogPost />} />
+      <Route path="/blog/best-rnb-albums-2025"                   element={<BlogBestAlbums2025 />} />
+      <Route path="/blog/afrobeats-rnb-transatlantic-love-story" element={<BlogAfrobeatsRnb />} />
+      <Route path="/blog/falsetto-renaissance-rnb"               element={<BlogFalsettoRenaissance />} />
+      <Route path="/blog/rnb-artists-to-watch-2026"              element={<BlogArtists2026 />} />
       <Route path="/about"                                       element={<About />} />
       <Route path="/privacy"                                     element={<PrivacyPolicy />} />
       <Route path="/terms"                                       element={<TermsOfService />} />
       <Route path="/contact"                                     element={<Contact />} />
       <Route path="/dmca"                                        element={<DMCA />} />
       <Route path="*"                                            element={<Home />} />
-              <Route path="/blog/best-rnb-albums-2025"                  element={<BlogBestAlbums2025 />} />
-          <Route path="/blog/afrobeats-rnb-transatlantic-love-story" element={<BlogAfrobeatsRnb />} />
-          <Route path="/blog/falsetto-renaissance-rnb"               element={<BlogFalsettoRenaissance />} />
-          <Route path="/blog/rnb-artists-to-watch-2026"              element={<BlogArtists2026 />} />
-        </Routes>
+    </Routes>
   )
 }
