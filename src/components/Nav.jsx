@@ -36,20 +36,21 @@ export default function Nav({ onSubmitClick }) {
       return
     }
 
-    if (link === 'ARTISTS') {
+    if (link === 'ARTISTS' || link === 'FOR ARTISTS') {
+      const id = link === 'ARTISTS' ? 'artists' : 'for-artists'
       if (location.pathname !== '/') {
         navigate('/')
         setTimeout(() => {
-          document.getElementById('artists')?.scrollIntoView({ behavior: 'smooth' })
+          document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
         }, 150)
       } else {
-        document.getElementById('artists')?.scrollIntoView({ behavior: 'smooth' })
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
       }
       return
     }
   }
 
-  const NAV_LINKS = ['HOME', 'ARTISTS', 'REVIEWS']
+  const NAV_LINKS = ['HOME', 'ARTISTS', 'REVIEWS', 'FOR ARTISTS']
 
   /* Active route helper */
   const isActive = (link) => {

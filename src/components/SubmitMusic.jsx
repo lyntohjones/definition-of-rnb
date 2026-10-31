@@ -11,9 +11,9 @@ const GENRES = [
   'Other',
 ]
 
-export default function SubmitMusic({ onClose }) {
+export default function SubmitMusic({ onClose, initialName = '' }) {
   const [form, setForm] = useState({
-    artistName: '',
+    artistName: initialName,
     email: '',
     city: '',
     genre: '',
