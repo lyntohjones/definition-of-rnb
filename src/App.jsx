@@ -7,6 +7,7 @@ import InFeedAd    from './components/InFeedAd'
 import BlogGrid    from './components/BlogGrid'
 import Footer      from './components/Footer'
 import SubmitMusic from './components/SubmitMusic'
+import ForArtists  from './components/ForArtists'
 import SEO         from './components/SEO'
 import Reviews       from './pages/Reviews'
 import Promote       from './pages/Promote'
@@ -81,6 +82,7 @@ const HOME_JSON_LD = {
 /* ââ Home page ââ */
 function Home() {
   const [showSubmit, setShowSubmit] = useState(false)
+  const [submitName, setSubmitName] = useState('')
   return (
     <div className="min-h-screen bg-[#5c2a35]">
       <SEO
@@ -92,10 +94,11 @@ function Home() {
       <div className="relative">
         <Hero />
       </div>
+      <ForArtists onSubmitClick={(name) => { setSubmitName(name); setShowSubmit(true) }} />
       <InFeedAd />
       <BlogGrid />
       <Footer onSubmitClick={() => setShowSubmit(true)} />
-      {showSubmit && <SubmitMusic onClose={() => setShowSubmit(false)} />}
+      {showSubmit && <SubmitMusic initialName={submitName} onClose={() => { setShowSubmit(false); setSubmitName('') }} />}
     </div>
   )
 }
