@@ -20,8 +20,8 @@ export default function Nav({ onSubmitClick }) {
 
     if (link === 'SUBMIT') { onSubmitClick?.(); return }
 
-    if (link === 'REVIEWS') {
-      navigate('/reviews')
+    if (link === 'REVIEWS' || link === 'BLOG') {
+      navigate(link === 'REVIEWS' ? '/reviews' : '/blog')
       window.scrollTo({ top: 0, behavior: 'smooth' })
       return
     }
@@ -50,11 +50,12 @@ export default function Nav({ onSubmitClick }) {
     }
   }
 
-  const NAV_LINKS = ['HOME', 'ARTISTS', 'REVIEWS', 'FOR ARTISTS']
+  const NAV_LINKS = ['HOME', 'ARTISTS', 'BLOG', 'REVIEWS', 'FOR ARTISTS']
 
   /* Active route helper */
   const isActive = (link) => {
     if (link === 'HOME')    return location.pathname === '/'
+    if (link === 'BLOG')    return location.pathname.startsWith('/blog')
     if (link === 'REVIEWS') return location.pathname === '/reviews'
     return false
   }
